@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import './App.css';
+import { addDataNasa, getDataNasa } from "./admin/dataManager";
 
 function App() {
   const [nasaData, setNasaData] = useState([]);
