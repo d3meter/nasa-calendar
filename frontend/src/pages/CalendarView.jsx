@@ -3,7 +3,7 @@ import MonthBtn from "../components/MonthBtn";
 import MonthCard from "../components/MonthCard";
 import YearBtn from "../components/YearBtn";
 import * as dateUtils from "@wojtekmaj/date-utils";
-import { getDaysInMonth, getCenturyStart } from "@wojtekmaj/date-utils";
+import { getDaysInMonth, getISOLocalDate } from "@wojtekmaj/date-utils";
 
 function CalendarView() {
   const [nasaData, setNasaData] = useState([]);
@@ -46,31 +46,33 @@ function CalendarView() {
   let monthNext = monthSelect !== "12" ? parseInt(monthSelect) + 1 : 1;
 
   //dates for fetch
-  let endDate = yearSelect + "-" + monthSelect + "-" + daysMonthOfDateSelect;
+  let endDateRaw = yearSelect + "-" + monthSelect + "-" + daysMonthOfDateSelect;
   if (lastDayNameSelect === "Saturday") {
-    endDate = yearMonthNext + "-" + monthNext + "-1";
+    endDateRaw = yearMonthNext + "-" + monthNext + "-1";
   }
   if (lastDayNameSelect === "Friday") {
-    endDate = yearSelect + "-" + monthNext + "-2";
+    endDateRaw = yearSelect + "-" + monthNext + "-2";
   }
   if (lastDayNameSelect === "Thursday") {
-    endDate = yearSelect + "-" + monthNext + "-3";
+    endDateRaw = yearSelect + "-" + monthNext + "-3";
   }
   if (lastDayNameSelect === "Wednesday") {
-    endDate = yearSelect + "-" + monthNext + "-4";
+    endDateRaw = yearSelect + "-" + monthNext + "-4";
   }
   if (lastDayNameSelect === "Tuesday") {
-    endDate = yearSelect + "-" + monthNext + "-5";
+    endDateRaw = yearSelect + "-" + monthNext + "-5";
   }
   if (lastDayNameSelect === "Monday") {
-    endDate = yearSelect + "-" + monthNext + "-6";
+    endDateRaw = yearSelect + "-" + monthNext + "-6";
   }
+  let endDate = getISOLocalDate(new Date(endDateRaw))
+
 
   //counting dates end
 
   const fetchData = () => {
     const apiKey = "QYSDCrsuNdQpx6YY9Yg2eO9RBWDIVwpWkwhwYWi8";
-    let fetchUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=2022-01-01&end_date=2022-02-01`;
+    let fetchUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=2022-01-01&end_date=${endDate}`;
 
     fetch(fetchUrl)
       .then((res) => res.json())
@@ -108,7 +110,7 @@ function CalendarView() {
       <p>
         {dateLast}, {lastDayNameLast}
       </p>
-      <p>end date: {endDate}</p>
+      <p>end date: {endDateRaw} and {endDate}</p>
       <YearBtn changeYear={changeYear} yearSelect={yearSelect} />
       <MonthBtn changeMonth={changeMonth} monthSelect={monthSelect} />
       <MonthCard nasaData={nasaData} />
