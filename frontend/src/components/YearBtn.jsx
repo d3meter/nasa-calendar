@@ -16,6 +16,7 @@ function YearBtn({changeYear, yearSelect}) {
      <MenuItem value={1996}>{1996}</MenuItem>
      <MenuItem value={1997}>{1997}</MenuItem>
      <MenuItem value={1998}>{1998}</MenuItem>
+     <MenuItem value={2022}>{2022}</MenuItem>
    </Select>
  </FormControl>
   )
