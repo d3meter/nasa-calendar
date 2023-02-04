@@ -7,7 +7,7 @@ const firebaseConfig = {
   projectId: "nasa-calendar",
   storageBucket: "nasa-calendar.appspot.com",
   messagingSenderId: "1082424051578",
-  appId: "1:1082424051578:web:e16be5fc5ff99e512378c3"
+  appId: "1:1082424051578:web:e16be5fc5ff99e512378c3",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -24,10 +24,19 @@ export const getDataNasa = async () => {
   return dataNasa;
 };
 
+/* const apiKey = "QYSDCrsuNdQpx6YY9Yg2eO9RBWDIVwpWkwhwYWi8";
+let fetchUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=2022-01-01&end_date=2022-02-01`;
+
+const fetchDataNasa = async () => {
+  const response = await fetch(fetchUrl);
+  const responseJson = await response.json();
+  return responseJson;
+}; */
+
 export const addDataNasa = async () => {
   try {
     const docRef = await addDoc(collection(db, "dataNasa"), {
-/*      first: "Ada",
+      /*      first: "Ada",
      last: "Lovelace",
      born: 1815 */
     });
