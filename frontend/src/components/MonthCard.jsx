@@ -1,5 +1,6 @@
 import React from "react";
 import DayCard from "./DayCard";
+import './css/MonthCard.css'
 
 function MonthCard({ nasaData }) {
 

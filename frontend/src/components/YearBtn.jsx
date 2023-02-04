@@ -15,7 +15,7 @@ function YearBtn() {
      labelId="demo-simple-select-label"
      id="demo-simple-select"
      value={year}
-     label="Age"
+     label="year"
      onChange={handleChange}
    >
      <MenuItem value={1996}>{1996}</MenuItem>

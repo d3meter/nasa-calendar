@@ -1,10 +1,11 @@
 import React from 'react'
+import './css/DayCard.css'
 
 function DayCard({ data }) {
 
   return (
    <div className="DayCard">
-    <div className='dayImg'>
+    <div className='day-img'>
      <img src={data.url} alt="no" />
     </div>
     <p>{data.title}</p>

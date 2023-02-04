@@ -1,0 +1,13 @@
+.DayCard {
+ width: 14%;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ .day-img {
+  width: 100%;
+  img {
+   width: 100%;
+  }
+ }
+}
