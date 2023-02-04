@@ -1,12 +1,7 @@
 import React, {useState} from 'react'
 import {FormControl, InputLabel, Select, MenuItem} from '@mui/material/';
 
-function YearBtn() {
- const [year, setYear] = useState('');
-
- const handleChange = (event) => {
-   setYear(event.target.value);
- };
+function YearBtn({changeYear, yearSelect}) {
 
   return (
    <FormControl size='medium'>
@@ -14,9 +9,9 @@ function YearBtn() {
    <Select
      labelId="demo-simple-select-label"
      id="demo-simple-select"
-     value={year}
+     value={yearSelect}
      label="year"
-     onChange={handleChange}
+     onChange={changeYear}
    >
      <MenuItem value={1996}>{1996}</MenuItem>
      <MenuItem value={1997}>{1997}</MenuItem>
