@@ -33,10 +33,10 @@ function CalendarView() {
   let lastDayNameSelect = weekday[iOfLastDaySelect.getDay()];
 
   //last month
-  let yearMonthLast = monthSelect !== "1" ? yearSelect : parseInt(yearSelect) - 1;
-  let monthLast = monthSelect !== "1" ? parseInt(monthSelect) - 1 : 12;
+  let yearMonthLast = monthSelect !== "01" ? yearSelect : parseInt(yearSelect) - 1;
+  let monthLast = monthSelect !== "01" ? parseInt(monthSelect) - 1 : 12;
   let dateLastBefore = yearMonthLast + "-" + monthLast + "-1";
-  let daysMonthLast = getDaysInMonth(new Date(dateLastBefore));
+  let daysMonthLast = parseInt(getDaysInMonth(new Date(dateLastBefore)));
   let dateLast = yearMonthLast + "-" + monthLast + "-" + daysMonthLast;
   let iOfLastDayLast = new Date(dateLast);
   let lastDayNameLast = weekday[iOfLastDayLast.getDay()];
@@ -46,6 +46,27 @@ function CalendarView() {
   let monthNext = monthSelect !== "12" ? parseInt(monthSelect) + 1 : 1;
 
   //dates for fetch
+  let startDateRaw = yearSelect + "-" + monthSelect + "-1";
+  if (firstDayNameSelect === "Tuesday") {
+    startDateRaw = yearMonthLast + "-" + monthLast + "-" + daysMonthLast;
+  }
+  if (firstDayNameSelect === "Wednesday") {
+    startDateRaw = yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast-1);
+  }
+  if (firstDayNameSelect === "Thursday") {
+    startDateRaw = yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast-2);
+  }
+  if (firstDayNameSelect === "Friday") {
+    startDateRaw = yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast-3);
+  }
+  if (firstDayNameSelect === "Saturday") {
+    startDateRaw = yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast-4);
+  }
+  if (firstDayNameSelect === "Sunday") {
+    startDateRaw = yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast-5);
+  }
+  let startDate = getISOLocalDate(new Date(startDateRaw))
+
   let endDateRaw = yearSelect + "-" + monthSelect + "-" + daysMonthOfDateSelect;
   if (lastDayNameSelect === "Saturday") {
     endDateRaw = yearMonthNext + "-" + monthNext + "-1";
@@ -66,7 +87,6 @@ function CalendarView() {
     endDateRaw = yearSelect + "-" + monthNext + "-6";
   }
   let endDate = getISOLocalDate(new Date(endDateRaw))
-
 
   //counting dates end
 
@@ -99,18 +119,7 @@ function CalendarView() {
 
   return (
     <div className="CalendarView">
-      <p>
-        Year select: {dateSelect}, year one month before: {yearMonthLast}
-      </p>
-      <p>days of month: {daysMonthOfDateSelect}</p>
-      <p>
-        weekday of first day: {firstDayNameSelect}, weekday of last day:{" "}
-        {lastDayNameSelect}
-      </p>
-      <p>
-        {dateLast}, {lastDayNameLast}
-      </p>
-      <p>end date: {endDateRaw} and {endDate}</p>
+      <p>{startDate} to {endDate}</p>
       <YearBtn changeYear={changeYear} yearSelect={yearSelect} />
       <MonthBtn changeMonth={changeMonth} monthSelect={monthSelect} />
       <MonthCard nasaData={nasaData} />
