@@ -12,6 +12,7 @@ function YearBtn({ changeYear, yearSelect }) {
         label="year"
         onChange={changeYear}
       >
+        <MenuItem value={1995}>1995</MenuItem>
         <MenuItem value={1996}>1996</MenuItem>
         <MenuItem value={1997}>1997</MenuItem>
         <MenuItem value={1998}>1998</MenuItem>

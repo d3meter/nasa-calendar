@@ -7,8 +7,8 @@ import { getDaysInMonth, getISOLocalDate } from "@wojtekmaj/date-utils";
 
 function CalendarView() {
   const [nasaData, setNasaData] = useState([]);
-  const [yearSelect, setYearSelect] = useState("");
-  const [monthSelect, setMonthSelect] = useState("");
+  const [yearSelect, setYearSelect] = useState(2023);
+  const [monthSelect, setMonthSelect] = useState('02');
 
   //counting dates start
   //select month
