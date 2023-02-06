@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import MonthBtn from "../components/MonthBtn";
 import MonthCard from "../components/MonthCard";
 import YearBtn from "../components/YearBtn";
-import * as dateUtils from "@wojtekmaj/date-utils";
+import "./css/CalendarView.css";
 import { getDaysInMonth, getISOLocalDate } from "@wojtekmaj/date-utils";
 
 function CalendarView() {
   const [nasaData, setNasaData] = useState([]);
   const [yearSelect, setYearSelect] = useState(2023);
-  const [monthSelect, setMonthSelect] = useState('02');
+  const [monthSelect, setMonthSelect] = useState("02");
 
   //counting dates start
   //select month
@@ -33,7 +33,8 @@ function CalendarView() {
   let lastDayNameSelect = weekday[iOfLastDaySelect.getDay()];
 
   //last month
-  let yearMonthLast = monthSelect !== "01" ? yearSelect : parseInt(yearSelect) - 1;
+  let yearMonthLast =
+    monthSelect !== "01" ? yearSelect : parseInt(yearSelect) - 1;
   let monthLast = monthSelect !== "01" ? parseInt(monthSelect) - 1 : 12;
   let dateLastBefore = yearMonthLast + "-" + monthLast + "-1";
   let daysMonthLast = parseInt(getDaysInMonth(new Date(dateLastBefore)));
@@ -42,7 +43,8 @@ function CalendarView() {
   let lastDayNameLast = weekday[iOfLastDayLast.getDay()];
 
   //next month
-  let yearMonthNext = monthSelect !== "12" ? yearSelect : parseInt(yearSelect) + 1;
+  let yearMonthNext =
+    monthSelect !== "12" ? yearSelect : parseInt(yearSelect) + 1;
   let monthNext = monthSelect !== "12" ? parseInt(monthSelect) + 1 : 1;
 
   //dates for fetch
@@ -51,21 +53,26 @@ function CalendarView() {
     startDateRaw = yearMonthLast + "-" + monthLast + "-" + daysMonthLast;
   }
   if (firstDayNameSelect === "Wednesday") {
-    startDateRaw = yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast-1);
+    startDateRaw =
+      yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast - 1);
   }
   if (firstDayNameSelect === "Thursday") {
-    startDateRaw = yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast-2);
+    startDateRaw =
+      yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast - 2);
   }
   if (firstDayNameSelect === "Friday") {
-    startDateRaw = yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast-3);
+    startDateRaw =
+      yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast - 3);
   }
   if (firstDayNameSelect === "Saturday") {
-    startDateRaw = yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast-4);
+    startDateRaw =
+      yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast - 4);
   }
   if (firstDayNameSelect === "Sunday") {
-    startDateRaw = yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast-5);
+    startDateRaw =
+      yearMonthLast + "-" + monthLast + "-" + parseInt(daysMonthLast - 5);
   }
-  let startDate = getISOLocalDate(new Date(startDateRaw))
+  let startDate = getISOLocalDate(new Date(startDateRaw));
 
   let endDateRaw = yearSelect + "-" + monthSelect + "-" + daysMonthOfDateSelect;
   if (lastDayNameSelect === "Saturday") {
@@ -86,7 +93,7 @@ function CalendarView() {
   if (lastDayNameSelect === "Monday") {
     endDateRaw = yearSelect + "-" + monthNext + "-6";
   }
-  let endDate = getISOLocalDate(new Date(endDateRaw))
+  let endDate = getISOLocalDate(new Date(endDateRaw));
 
   //counting dates end
 
@@ -120,8 +127,10 @@ function CalendarView() {
 
   return (
     <div className="CalendarView">
-      <YearBtn changeYear={changeYear} yearSelect={yearSelect} />
-      <MonthBtn changeMonth={changeMonth} monthSelect={monthSelect} />
+      <div className="menu">
+        <YearBtn changeYear={changeYear} yearSelect={yearSelect} />
+        <MonthBtn changeMonth={changeMonth} monthSelect={monthSelect} />
+      </div>
       <MonthCard startDate={startDate} endDate={endDate} />
     </div>
   );

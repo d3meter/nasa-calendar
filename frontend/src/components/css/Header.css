@@ -1,0 +1,104 @@
+.Header {
+  width: 100%;
+  height: 60px;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  color: #f8f7f3;
+  padding-inline: 10px;
+  box-sizing: border-box;
+}
+.Header .header-section1 {
+  height: 100%;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.Header .header-section2 {
+  height: 200%;
+  padding-top: 50px;
+}
+.Header .header-section2 img {
+  height: 100%;
+}
+.Header .header-section3 {
+  height: 100%;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.Header .header-section3 button {
+  color: white;
+  background-color: transparent;
+  border: unset;
+  cursor: pointer;
+}
+.Header .header-section3 img {
+  height: 60%;
+}
+.Header .header-btn {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 5px;
+  gap: 5px;
+}
+.Header .header-btn img {
+  height: 70%;
+}
+.Header .header-btn p {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: none;
+}
+.Header .header-btn:hover p {
+  display: block;
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light {
+  color: rgb(255, 255, 255);
+}
+
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}/*# sourceMappingURL=Header.css.map */
