@@ -13,10 +13,16 @@ function YearBtn({changeYear, yearSelect}) {
      label="year"
      onChange={changeYear}
    >
-     <MenuItem value={1996}>{1996}</MenuItem>
-     <MenuItem value={1997}>{1997}</MenuItem>
-     <MenuItem value={1998}>{1998}</MenuItem>
-     <MenuItem value={2022}>{2022}</MenuItem>
+     <MenuItem value={1996}>1996</MenuItem>
+     <MenuItem value={1997}>1997</MenuItem>
+     <MenuItem value={1998}>1998</MenuItem>
+     <MenuItem value={1999}>1999</MenuItem>
+     <MenuItem value={2000}>2000</MenuItem>
+     <MenuItem value={2001}>2001</MenuItem>
+     <MenuItem value={2002}>2002</MenuItem>
+     <MenuItem value={2003}>2003</MenuItem>
+     <MenuItem value={2004}>2004</MenuItem>
+     <MenuItem value={2005}>2005</MenuItem>
    </Select>
  </FormControl>
   )
