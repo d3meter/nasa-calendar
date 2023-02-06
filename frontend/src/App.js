@@ -5,6 +5,7 @@ import "react-calendar/dist/Calendar.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import CalendarView from "./pages/CalendarView";
+import Favorites from "./pages/Favorites";
 import Main from "./pages/Main";
 import DayDetail from "./pages/DayDetail";
 
@@ -25,18 +26,16 @@ function App() {
   }, []); */
 
   return (
-      <Router>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route path="/" element={<Main />} />
-            <Route path="/calendar" element={<CalendarView />} />
-            <Route
-            path="/:date"
-            element={<DayDetail />}
-          />
-          </Route>
-        </Routes>
-      </Router>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Main />} />
+          <Route path="/calendar" element={<CalendarView />} />
+          <Route path="/:date" element={<DayDetail />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 

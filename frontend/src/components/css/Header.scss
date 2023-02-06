@@ -25,8 +25,9 @@ $secondary: #ffea00;
     justify-content: flex-start;
   }
   .header-section2 {
-    height: 200%;
-    padding-top: 50px;
+    height: 150%;
+    width: min-content;
+    padding-top: 25px;
     img {
       height: 100%;
     }
@@ -60,9 +61,10 @@ $secondary: #ffea00;
       height: 70%;
     }
     p {
-      text-transform: uppercase;
+      text-decoration: underline;
+      font-variant-caps: small-caps;
       font-weight: bold;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       display: none;
     }
   }

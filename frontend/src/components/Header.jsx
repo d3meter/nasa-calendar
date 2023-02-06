@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/Header.css";
 import { Link } from "react-router-dom";
-import nasaLogo from "../pub-imgs/nasa-logo.png"
+import nasaLogo from "../pub-imgs/nasa-logo.png";
 
 function Header() {
   return (
@@ -20,9 +20,9 @@ function Header() {
           <p>My Favorites</p>
         </Link>
       </div>
-      <Link className="header-section2" to="/">
+      <div className="header-section2" to="/">
         <img src={nasaLogo} alt="logo" />
-      </Link>
+      </div>
       <div className="header-section3">
         <button className="header-btn">
           <span class="material-icons md-48">login</span>

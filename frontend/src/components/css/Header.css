@@ -23,8 +23,11 @@
   justify-content: flex-start;
 }
 .Header .header-section2 {
-  height: 200%;
-  padding-top: 50px;
+  height: 150%;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  padding-top: 25px;
 }
 .Header .header-section2 img {
   height: 100%;
@@ -59,9 +62,10 @@
   height: 70%;
 }
 .Header .header-btn p {
-  text-transform: uppercase;
+  text-decoration: underline;
+  font-variant-caps: small-caps;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   display: none;
 }
 .Header .header-btn:hover p {

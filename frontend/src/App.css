@@ -11,6 +11,7 @@ body {
   max-width: 100%;
   max-height: 100%;
   box-sizing: border-box;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 .App {
