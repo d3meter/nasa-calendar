@@ -90,7 +90,7 @@ function CalendarView() {
 
   //counting dates end
 
-  const fetchData = () => {
+  /*  const fetchData = () => {
     const apiKey = "QYSDCrsuNdQpx6YY9Yg2eO9RBWDIVwpWkwhwYWi8";
     let fetchUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=2022-01-01&end_date=${endDate}`;
 
@@ -99,7 +99,8 @@ function CalendarView() {
       .then((data) => {
         setNasaData(data);
       });
-  };
+  }; */
+
   /*   useEffect(() => {
     fetch(fetchUrl)
       .then((res) => res.json())
@@ -119,10 +120,9 @@ function CalendarView() {
 
   return (
     <div className="CalendarView">
-      <p>{startDate} to {endDate}</p>
       <YearBtn changeYear={changeYear} yearSelect={yearSelect} />
       <MonthBtn changeMonth={changeMonth} monthSelect={monthSelect} />
-      <MonthCard nasaData={nasaData} />
+      <MonthCard startDate={startDate} endDate={endDate} />
     </div>
   );
 }

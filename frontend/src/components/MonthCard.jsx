@@ -4,11 +4,9 @@ import './css/MonthCard.css';
 import nasaData from '../data/nasa-data.json';
 
 
-function MonthCard() {
+function MonthCard({startDate, endDate}) {
 
   let filterData = [];
-  let startDate = '1995-06-25';
-  let endDate = '1995-08-02';
   
   let indexOfFirst = 0;
   for (let i=0; i<nasaData.length; i++) {
