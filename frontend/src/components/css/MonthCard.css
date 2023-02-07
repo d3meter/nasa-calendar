@@ -2,7 +2,8 @@
   width: 80%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  align-items: center;
+  grid-template-rows: repeat(6, 0.7fr);
+  align-items: flex-start;
   justify-content: center;
+  margin-block: 50px;
 }/*# sourceMappingURL=MonthCard.css.map */
