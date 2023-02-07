@@ -5,5 +5,6 @@
   grid-template-rows: repeat(6, 0.7fr);
   align-items: flex-start;
   justify-content: center;
-  margin-block: 50px;
+  margin-bottom: 50px;
+  text-align: center;
 }/*# sourceMappingURL=MonthCard.css.map */

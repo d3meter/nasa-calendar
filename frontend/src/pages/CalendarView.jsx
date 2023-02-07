@@ -131,6 +131,15 @@ function CalendarView() {
         <YearBtn changeYear={changeYear} yearSelect={yearSelect} />
         <MonthBtn changeMonth={changeMonth} monthSelect={monthSelect} />
       </div>
+      <div className="days">
+        <h1>Mo</h1>
+        <h1>Tue</h1>
+        <h1>Wed</h1>
+        <h1>Thu</h1>
+        <h1>Fri</h1>
+        <h1 className="weekend">Sat</h1>
+        <h1 className="weekend">Sun</h1>
+      </div>
       <MonthCard startDate={startDate} endDate={endDate} />
     </div>
   );

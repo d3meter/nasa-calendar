@@ -31,7 +31,7 @@ function DayCard({ data }) {
           <img src={spinner} alt="spinner" />
         )}
       </div>
-      <p>{data.title}</p>
+      <p className="title">{data.title}</p>
     </Link>
   );
 }

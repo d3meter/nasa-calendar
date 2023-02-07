@@ -1,9 +1,10 @@
 .MonthCard {
- width: 80%;
- display: grid;
- grid-template-columns: repeat(7, 1fr);
- grid-template-rows: repeat(6, 0.7fr);
- align-items: flex-start;
- justify-content: center;
- margin-block: 50px;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 0.7fr);
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 50px;
+  text-align: center;
 }
