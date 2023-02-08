@@ -1,8 +1,9 @@
+import { Tooltip } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import spinner from "../pub-imgs/spinner.gif";
 import "./css/DayDetail.css";
 
-function DayDetail({nasaData}) {
+function DayDetail({ nasaData }) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -22,18 +23,24 @@ function DayDetail({nasaData}) {
         <div className="detail-img">
           {!loading ? (
             nasaData.media_type !== "image" ? (
-              <iframe src={nasaData.url} title={nasaData.title} allowFullScreen></iframe>
+              <iframe
+                src={nasaData.url}
+                title={nasaData.title}
+                allowFullScreen
+              ></iframe>
             ) : (
-              <img src={nasaData.url} alt="no" />
+              <Tooltip title="Click to open in full HD!" followCursor>
+                <a href={nasaData.hdurl} target="_blank" rel="noreferrer">
+                  <img src={nasaData.url} alt="no" />
+                </a>
+              </Tooltip>
             )
           ) : (
             <img className="spinner" src={spinner} alt="spinner" />
           )}
         </div>
         <div className="detail-data">
-          {nasaData.copyright ? ( 
-          <span>&copy; {nasaData.copyright}</span>) : ("")
-          }
+          {nasaData.copyright ? <span>&copy; {nasaData.copyright}</span> : ""}
           <p>{nasaData.explanation}</p>
         </div>
       </div>

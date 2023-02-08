@@ -8,14 +8,12 @@ function DetailsPage() {
 
   let {dateId} = useParams();
 
-  console.log(dateId)
   useEffect(() => {
     for (let i = 0; i < nasaData.length; i++) {
       if (nasaData[i].date === dateId) {
         setNasaDataThatDay(nasaData[i]);
       }
     }
-    console.log(nasaDataThatDay);
   }, []);
 
   return (
