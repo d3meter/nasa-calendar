@@ -27,6 +27,7 @@ function Main() {
 
   useEffect(() => {
     setNasaDataToday(nasaData[nasaData.length-1])
+    console.log(nasaDataToday)
   },[])
 
   return (

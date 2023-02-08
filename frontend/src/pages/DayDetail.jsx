@@ -31,7 +31,9 @@ function DayDetail({nasaData}) {
           )}
         </div>
         <div className="detail-data">
-          <span>&copy; {nasaData.copyright}</span>
+          {nasaData.copyright ? ( 
+          <span>&copy; {nasaData.copyright}</span>) : ("")
+          }
           <p>{nasaData.explanation}</p>
         </div>
       </div>
