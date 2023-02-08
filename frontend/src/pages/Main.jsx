@@ -6,8 +6,9 @@ import "./css/Main.css";
 function Main() {
   return (
     <div className="Main">
-      <p>Welcome to NASA! If you need some space...</p>
-      <DayDetail />
+      <div className="main-container">
+        <DayDetail />
+      </div>
     </div>
   );
 }

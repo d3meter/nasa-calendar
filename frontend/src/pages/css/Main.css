@@ -1,7 +1,16 @@
 .Main {
-  padding-top: 120px;
+  width: 100%;
+  height: 100vh;
+  padding-top: 60px;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  text-align: center;
+}
+.Main .main-container {
+  width: 100%;
+  height: 100%;
+}
+.Main .main-container h1 {
+  margin-bottom: 20px;
 }/*# sourceMappingURL=Main.css.map */

@@ -6,7 +6,6 @@ import "./css/CalendarView.css";
 import { getDaysInMonth, getISOLocalDate } from "@wojtekmaj/date-utils";
 
 function CalendarView() {
-  const [nasaData, setNasaData] = useState([]);
   const [yearSelect, setYearSelect] = useState(2023);
   const [monthSelect, setMonthSelect] = useState("02");
 
@@ -97,26 +96,6 @@ function CalendarView() {
 
   //counting dates end
 
-  /*  const fetchData = () => {
-    const apiKey = "QYSDCrsuNdQpx6YY9Yg2eO9RBWDIVwpWkwhwYWi8";
-    let fetchUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=2022-01-01&end_date=${endDate}`;
-
-    fetch(fetchUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setNasaData(data);
-      });
-  }; */
-
-  /*   useEffect(() => {
-    fetch(fetchUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setNasaData(data);
-        console.log(data);
-      });
-  }, []); */
-
   const changeMonth = (event) => {
     setMonthSelect(event.target.value);
   };
@@ -132,7 +111,7 @@ function CalendarView() {
         <MonthBtn changeMonth={changeMonth} monthSelect={monthSelect} />
       </div>
       <div className="days">
-        <h1>Mo</h1>
+        <h1>Mon</h1>
         <h1>Tue</h1>
         <h1>Wed</h1>
         <h1>Thu</h1>

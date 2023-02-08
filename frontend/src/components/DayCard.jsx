@@ -23,7 +23,7 @@ function DayCard({ data }) {
       <div className="day-img">
         {!loading ? (
           data.media_type !== "image" ? (
-            <iframe src={data.url} title={data.title} frameborder="0"></iframe>
+            <iframe src={data.url} title={data.title}></iframe>
           ) : (
             <img src={data.url} alt="no" />
           )
