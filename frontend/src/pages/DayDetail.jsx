@@ -22,7 +22,7 @@ function DayDetail({nasaData}) {
         <div className="detail-img">
           {!loading ? (
             nasaData.media_type !== "image" ? (
-              <iframe src={nasaData.url} title={nasaData.title}></iframe>
+              <iframe src={nasaData.url} title={nasaData.title} allowFullScreen></iframe>
             ) : (
               <img src={nasaData.url} alt="no" />
             )

@@ -38,11 +38,14 @@
   justify-content: center;
   overflow: hidden;
 }
-.DayDetail .detail-container .detail-img img,
-.DayDetail .detail-container .detail-img iframe {
+.DayDetail .detail-container .detail-img img {
   width: 100%;
   max-height: 100%;
   border-radius: 20px;
+}
+.DayDetail .detail-container .detail-img iframe {
+  width: 100vw;
+  height: 70vh;
 }
 .DayDetail .detail-data {
   width: -webkit-fit-content;

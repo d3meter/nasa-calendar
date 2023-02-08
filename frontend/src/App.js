@@ -7,11 +7,10 @@ import Layout from "./components/Layout";
 import CalendarView from "./pages/CalendarView";
 import Favorites from "./pages/Favorites";
 import Main from "./pages/Main";
-import DayDetail from "./pages/DayDetail";
+import DetailsPage from "./pages/DetailsPage";
 
 function App() {
-  const [date, setDate] = useState(new Date());
-  
+/*   const [date, setDate] = useState(new Date()); */
   /*   const [nasaDataDay, setNasaDataDay] = useState([]);
 
   const apiKey = "QYSDCrsuNdQpx6YY9Yg2eO9RBWDIVwpWkwhwYWi8";
@@ -32,7 +31,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Main />} />
           <Route path="/calendar" element={<CalendarView />} />
-          <Route path="/:date" element={<DayDetail />} />
+          <Route path="/:dateId" element={<DetailsPage />} />
           <Route path="/favorites" element={<Favorites />} />
         </Route>
       </Routes>
