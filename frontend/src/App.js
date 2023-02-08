@@ -11,6 +11,7 @@ import DayDetail from "./pages/DayDetail";
 
 function App() {
   const [date, setDate] = useState(new Date());
+  
   /*   const [nasaDataDay, setNasaDataDay] = useState([]);
 
   const apiKey = "QYSDCrsuNdQpx6YY9Yg2eO9RBWDIVwpWkwhwYWi8";

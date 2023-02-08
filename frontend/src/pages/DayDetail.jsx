@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import spinner from "../pub-imgs/spinner.gif";
 import "./css/DayDetail.css";
 
-function DayDetail() {
-  const [nasaData, setNasaData] = useState([]);
+function DayDetail({nasaData}) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -11,26 +10,6 @@ function DayDetail() {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
-  }, []);
-
-  const date = new Date();
-
-  let day = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-
-  let dateToday = `${year}-${month}-${day}`;
-
-  const apiKey = "QYSDCrsuNdQpx6YY9Yg2eO9RBWDIVwpWkwhwYWi8";
-  let fetchUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${dateToday}`;
-
-  useEffect(() => {
-    fetch(fetchUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setNasaData(data);
-        console.log(data);
-      });
   }, []);
 
   return (
@@ -48,7 +27,7 @@ function DayDetail() {
               <img src={nasaData.url} alt="no" />
             )
           ) : (
-            <img src={spinner} alt="spinner" />
+            <img className="spinner" src={spinner} alt="spinner" />
           )}
         </div>
         <div className="detail-data">
