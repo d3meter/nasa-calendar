@@ -120,7 +120,7 @@ function CalendarView() {
         <h1 className="weekend">Sat</h1>
         <h1 className="weekend">Sun</h1>
       </div>
-      <MonthCard startDate={startDate} endDate={endDate} />
+      <MonthCard monthSelect={monthSelect} startDate={startDate} endDate={endDate} />
     </div>
   );
 }

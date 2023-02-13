@@ -4,7 +4,7 @@ import "./css/MonthCard.css";
 import nasaData from "../data/nasa-data.json";
 import { Link } from "react-router-dom";
 
-function MonthCard({ startDate, endDate }) {
+function MonthCard({ monthSelect, startDate, endDate }) {
   let filterData = [];
   let indexData = nasaData.length;
 
@@ -29,7 +29,7 @@ function MonthCard({ startDate, endDate }) {
   return (
     <div className="MonthCard">
       {filterData.length < 44 ? (
-        Array.from(filterData).map((data, i) => <DayCard key={i} data={data} />)
+        Array.from(filterData).map((data, i) => <DayCard key={i} data={data} monthSelect={monthSelect}/>)
       ) : (
         <p>invalid date</p>
       )}

@@ -3,12 +3,13 @@ import React, { useState, useEffect } from "react";
 import "./css/DayCard.css";
 import spinner from "../pub-imgs/spinner.gif";
 
-function DayCard({ data }) {
+function DayCard({ monthSelect, data }) {
   const [loading, setLoading] = useState(false);
 
   const date = data.date;
   const dateSplit = date.split("-");
   const day = dateSplit[2];
+  const month = dateSplit[1];
 
   useEffect(() => {
     setLoading(true);
@@ -17,7 +18,7 @@ function DayCard({ data }) {
     }, 3000);
   }, []);
 
-  return (
+  return monthSelect === month ? (
     <Link className="DayCard" to={"/" + date}>
       <p className="day-tag">{day}</p>
       <div className="day-img">
@@ -33,6 +34,8 @@ function DayCard({ data }) {
       </div>
       <p className="title">{data.title}</p>
     </Link>
+  ) : (
+    <div className="DayCard"><p className="day-tag inactive">{day}</p></div>
   );
 }
 
