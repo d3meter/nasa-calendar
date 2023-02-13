@@ -78,22 +78,23 @@ function CalendarView() {
     endDateRaw = yearMonthNext + "-" + monthNext + "-1";
   }
   if (lastDayNameSelect === "Friday") {
-    endDateRaw = yearSelect + "-" + monthNext + "-2";
+    endDateRaw = yearMonthNext + "-" + monthNext + "-2";
   }
   if (lastDayNameSelect === "Thursday") {
-    endDateRaw = yearSelect + "-" + monthNext + "-3";
+    endDateRaw = yearMonthNext + "-" + monthNext + "-3";
   }
   if (lastDayNameSelect === "Wednesday") {
-    endDateRaw = yearSelect + "-" + monthNext + "-4";
+    endDateRaw = yearMonthNext + "-" + monthNext + "-4";
   }
   if (lastDayNameSelect === "Tuesday") {
-    endDateRaw = yearSelect + "-" + monthNext + "-5";
+    endDateRaw = yearMonthNext + "-" + monthNext + "-5";
   }
   if (lastDayNameSelect === "Monday") {
-    endDateRaw = yearSelect + "-" + monthNext + "-6";
+    endDateRaw = yearMonthNext + "-" + monthNext + "-6";
   }
   let endDate = getISOLocalDate(new Date(endDateRaw));
 
+  console.log(yearMonthNext, startDate, endDate);
   //counting dates end
 
   const changeMonth = (event) => {
