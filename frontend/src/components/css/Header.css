@@ -24,7 +24,6 @@
 }
 .Header .header-section2 {
   height: 150%;
-  width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
   padding-top: 25px;

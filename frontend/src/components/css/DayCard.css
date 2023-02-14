@@ -17,10 +17,19 @@
   overflow: hidden;
 }
 .DayCard .day-tag {
+  height: 2.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
   font-weight: bold;
   font-size: x-large;
   margin: unset;
-  padding-left: 5px;
+  padding-inline: 5px;
+}
+.DayCard .day-tag .day-name {
+  font-weight: normal;
 }
 .DayCard .inactive {
   filter: opacity(0.2);

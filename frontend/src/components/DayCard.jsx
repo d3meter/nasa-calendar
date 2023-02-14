@@ -11,6 +11,10 @@ function DayCard({ monthSelect, data }) {
   const day = dateSplit[2];
   const month = dateSplit[1];
 
+  const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let iOfDay = new Date(date);
+  let dayNameSelect = weekday[iOfDay.getDay()];
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -20,7 +24,10 @@ function DayCard({ monthSelect, data }) {
 
   return monthSelect === month ? (
     <Link className="DayCard" to={"/" + date}>
-      <p className="day-tag">{day}</p>
+      <div className="day-tag">
+        <p>{day} </p>
+        <p className="day-name">{dayNameSelect}</p>
+      </div>
       <div className="day-img">
         {!loading ? (
           data.media_type !== "image" ? (
@@ -35,7 +42,9 @@ function DayCard({ monthSelect, data }) {
       <p className="title">{data.title}</p>
     </Link>
   ) : (
-    <div className="DayCard"><p className="day-tag inactive">{day}</p></div>
+    <div className="DayCard">
+      <p className="day-tag inactive">{day}</p>
+    </div>
   );
 }
 
