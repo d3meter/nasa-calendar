@@ -15,38 +15,43 @@ function App() {
   const [nasaDataUpdate, setNasaDataUpdate] = useState([]);
 
   //start of update fetch
-  const apiKey = "QYSDCrsuNdQpx6YY9Yg2eO9RBWDIVwpWkwhwYWi8";
-
-  const date = new Date();
-
-  let day = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-
-  let dateTodayRaw = `${year}-${month}-${day}`;
-  let endDate = getISOLocalDate(new Date(dateTodayRaw));
-
-  let startDate = nasaData[nasaData.length - 1].date;
 
   useEffect(() => {
+    const apiKey = "QYSDCrsuNdQpx6YY9Yg2eO9RBWDIVwpWkwhwYWi8";
+
+    const date = new Date();
+  
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+  
+    let dateTodayRaw = `${year}-${month}-${day}`;
+    let endDate = getISOLocalDate(new Date(dateTodayRaw));
+  
+    let startDate = nasaData[nasaData.length - 1].date;
+
     if (startDate !== endDate) {
       let fetchUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=${startDate}&end_date=${endDate}`;
       fetch(fetchUrl)
         .then((res) => res.json())
         .then((data) => {
           setNasaDataUpdate(data);
+          console.log(nasaDataUpdate);
         });
     }
   }, []);
 
   useEffect(() => {
     if (nasaDataUpdate.length === 2) {
-      let dataParse = JSON.parse(nasaData);
-      dataParse.push(nasaDataUpdate[1]);
+      let newArray = nasaData.push(nasaDataUpdate[1]);
+      nasaData = newArray;
     } else {
-      
+      let nasaDataUpdateSlice = nasaDataUpdate.slice(1);
+      let newArray = nasaData.concat(nasaDataUpdateSlice);
+      nasaData = newArray;
+      console.log(nasaData);
     }
-  }, []);
+  }, [nasaDataUpdate]);
 
   //end of update fetch
 
