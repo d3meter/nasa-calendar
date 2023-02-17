@@ -7,7 +7,6 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function Header() {
   const [logState, setLogState] = useState("logged out");
-  const [handleBtnDisable, setHandleBtnDisable] = useState(true);
   const [userLoggedin, setUserLoggedin] = useState("");
 
   async function signOut() {
@@ -19,11 +18,9 @@ function Header() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setLogState(`logged in`);
-        setHandleBtnDisable(false);
         setUserLoggedin(user.email);
       } else {
         setLogState(`logged out`);
-        setHandleBtnDisable(true);
         setUserLoggedin("");
       }
     });
@@ -56,7 +53,6 @@ function Header() {
             <button
               className="header-btn"
               onClick={signOut}
-              disabled={handleBtnDisable}
             >
               <span className="material-icons md-48">logout</span>
               <p>Logout</p>

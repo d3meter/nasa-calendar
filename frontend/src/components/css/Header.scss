@@ -19,7 +19,7 @@ $secondary: #0B3D91;
   box-sizing: border-box;
   .header-section1 {
     height: 100%;
-    width: 400px;
+    width: 500px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -35,12 +35,15 @@ $secondary: #0B3D91;
   }
   .header-section3 {
     height: 100%;
-    width: 400px;
+    width: 500px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
+    h2 {
+      padding-right: 10px;
+    }
     button {
       color: white;
       background-color: transparent;

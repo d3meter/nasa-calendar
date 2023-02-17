@@ -17,7 +17,7 @@
 }
 .Header .header-section1 {
   height: 100%;
-  width: 400px;
+  width: 500px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -34,12 +34,15 @@
 }
 .Header .header-section3 {
   height: 100%;
-  width: 400px;
+  width: 500px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
   gap: 10px;
+}
+.Header .header-section3 h2 {
+  padding-right: 10px;
 }
 .Header .header-section3 button {
   color: white;

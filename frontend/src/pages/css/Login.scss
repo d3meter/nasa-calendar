@@ -1,11 +1,17 @@
 .Login {
- width: 100%;
- padding-top: 140px;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- h1 {
-  margin: 0;
- }
+  width: 100%;
+  padding-top: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  h1 {
+    margin: 0;
+  }
 }

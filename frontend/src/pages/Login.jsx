@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./css/Login.css";
+import { Link } from "react-router-dom";
 import {
   TextField,
   InputLabel,
@@ -78,7 +79,15 @@ function Login() {
           </p>
         </form>
       ) : (
-        <p>Login successful with {user.email} </p>
+        <>
+          <p>Login successful with {user.email} </p>
+          <Link to="/">
+            <Button>
+              <span class="material-icons">arrow_back_ios</span>
+              <p>Back to the home page</p>
+            </Button>
+          </Link>
+        </>
       )}
     </div>
   );
