@@ -11,6 +11,7 @@ import DetailsPage from "./pages/DetailsPage";
 import Login from "./pages/Login";
 import nasaData from "./data/nasa-data.json";
 import { getISOLocalDate } from "@wojtekmaj/date-utils";
+import Registration from "./pages/Registration";
 
 function App() {
   const [nasaDataUpdate, setNasaDataUpdate] = useState([]);
@@ -65,6 +66,7 @@ function App() {
           <Route path="/:dateId" element={<DetailsPage />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Registration />} />
         </Route>
       </Routes>
     </Router>

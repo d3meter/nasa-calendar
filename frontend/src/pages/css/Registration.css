@@ -1,4 +1,4 @@
-.Login {
+.Registration {
   width: 100%;
   padding-top: 140px;
   display: flex;
@@ -6,17 +6,17 @@
   align-items: center;
   justify-content: center;
 }
-.Login form {
+.Registration form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.Login form .error-text {
+.Registration form .error-text {
   color: red;
   font-weight: bold;
   text-align: center;
 }
-.Login h1 {
+.Registration h1 {
   margin: 0;
-}/*# sourceMappingURL=Login.css.map */
+}/*# sourceMappingURL=Registration.css.map */
