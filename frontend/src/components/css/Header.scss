@@ -3,6 +3,7 @@ $secondary: #0B3D91;
 
 .Header {
   width: 100%;
+  min-width: 700px;
   height: 60px;
   background-color: $secondary;
   display: flex;

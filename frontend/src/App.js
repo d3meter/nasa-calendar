@@ -8,6 +8,7 @@ import CalendarView from "./pages/CalendarView";
 import Favorites from "./pages/Favorites";
 import Main from "./pages/Main";
 import DetailsPage from "./pages/DetailsPage";
+import Login from "./pages/Login";
 import nasaData from "./data/nasa-data.json";
 import { getISOLocalDate } from "@wojtekmaj/date-utils";
 
@@ -16,7 +17,7 @@ function App() {
 
   //start of update fetch
 
-  useEffect(() => {
+  /* useEffect(() => {
     const apiKey = "QYSDCrsuNdQpx6YY9Yg2eO9RBWDIVwpWkwhwYWi8";
 
     const date = new Date();
@@ -51,7 +52,7 @@ function App() {
       nasaData = newArray;
       console.log(nasaData);
     }
-  }, [nasaDataUpdate]);
+  }, [nasaDataUpdate]); */
 
   //end of update fetch
 
@@ -63,6 +64,7 @@ function App() {
           <Route path="/calendar" element={<CalendarView />} />
           <Route path="/:dateId" element={<DetailsPage />} />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/login" element={<Login />} />
         </Route>
       </Routes>
     </Router>

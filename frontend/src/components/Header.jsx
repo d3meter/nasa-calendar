@@ -20,14 +20,14 @@ function Header() {
           <p>My Favorites</p>
         </Link>
       </div>
-      <div className="header-section2" to="/">
+      <div className="header-section2">
         <img src={nasaLogo} alt="logo" />
       </div>
       <div className="header-section3">
-        <button className="header-btn">
+        <Link className="header-btn"  to="/login">
           <span className="material-icons md-48">login</span>
           <p>Login</p>
-        </button>
+        </Link>
       </div>
     </div>
   );
