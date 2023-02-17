@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./css/Registration.css";
 import { Link } from "react-router-dom";
 import {
@@ -8,8 +8,7 @@ import {
   InputAdornment,
   IconButton,
   FormControl,
-  Button,
-  helperText
+  Button
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material/";
 import { registration } from "../admin/auth";

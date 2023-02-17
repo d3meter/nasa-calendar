@@ -31,7 +31,7 @@ function MonthCard({ monthSelect, startDate, endDate }) {
       {filterData.length < 44 ? (
         Array.from(filterData).map((data, i) => <DayCard key={i} data={data} monthSelect={monthSelect}/>)
       ) : (
-        <p>invalid date</p>
+        <h2 className="error">! invalid date !</h2>
       )}
     </div>
   );
