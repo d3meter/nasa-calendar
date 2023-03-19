@@ -6,10 +6,14 @@ import "./css/CalendarView.css";
 import { getDaysInMonth, getISOLocalDate, getISOLocalMonth, getYear } from "@wojtekmaj/date-utils";
 
 function CalendarView() {
+/* First auto fetch must be implemented !!!
   const yearMonthTodaySplited = getISOLocalMonth(new Date()).split("-")
 
   const [yearSelect, setYearSelect] = useState(getYear(new Date()));
-  const [monthSelect, setMonthSelect] = useState(yearMonthTodaySplited[1]);
+  const [monthSelect, setMonthSelect] = useState(yearMonthTodaySplited[1]); */
+
+  const [yearSelect, setYearSelect] = useState(getYear(new Date()));
+  const [monthSelect, setMonthSelect] = useState('03');
 
   //counting dates start
   //select month
