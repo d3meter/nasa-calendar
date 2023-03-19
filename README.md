@@ -1,5 +1,6 @@
 ## NASA calendar
 Solo react project.
+[Click here to open](https://nasa-calendar.web.app)
 
 **Start**
 *cd frontend* ==> *npm start*.
@@ -21,7 +22,7 @@ I used [NASA-API](https://api.nasa.gov/) to build my database. The landing page 
 	 - [x] Registration
 	 - [x] Login
  - [ ] Firestore database
- - [ ] Firebase hosting
+ - [x] Firebase hosting
  - [x] JSON database (using JSON loader)
  - [x] Auto. filled calendar look
  - [x] Desing with SCSS and Material UI
