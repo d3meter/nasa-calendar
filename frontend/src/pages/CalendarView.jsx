@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import MonthBtn from "../components/MonthBtn";
 import MonthCard from "../components/MonthCard";
 import YearBtn from "../components/YearBtn";
 import "./css/CalendarView.css";
-import { getDaysInMonth, getISOLocalDate } from "@wojtekmaj/date-utils";
+import { getDaysInMonth, getISOLocalDate, getISOLocalMonth, getYear } from "@wojtekmaj/date-utils";
 
 function CalendarView() {
-  const [yearSelect, setYearSelect] = useState(2023);
-  const [monthSelect, setMonthSelect] = useState("02");
+  const yearMonthTodaySplited = getISOLocalMonth(new Date()).split("-")
+
+  const [yearSelect, setYearSelect] = useState(getYear(new Date()));
+  const [monthSelect, setMonthSelect] = useState(yearMonthTodaySplited[1]);
 
   //counting dates start
   //select month

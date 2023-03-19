@@ -18,7 +18,7 @@ function App() {
 
   //start of update fetch
 
-  /* useEffect(() => {
+  useEffect(() => {
     const apiKey = "QYSDCrsuNdQpx6YY9Yg2eO9RBWDIVwpWkwhwYWi8";
 
     const date = new Date();
@@ -53,7 +53,7 @@ function App() {
       nasaData = newArray;
       console.log(nasaData);
     }
-  }, [nasaDataUpdate]); */
+  }, [nasaDataUpdate]);
 
   //end of update fetch
 
