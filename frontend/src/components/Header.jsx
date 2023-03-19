@@ -39,7 +39,7 @@ function Header() {
         </Link>
         <Link className="header-btn" to="/favorites">
           <span className="material-icons md-48">star_rate</span>
-          <p>My Favorites</p>
+          <p>Favorites</p>
         </Link>
       </div>
       <div className="header-section2">

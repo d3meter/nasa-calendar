@@ -1,16 +1,30 @@
 .CalendarView {
-  width: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  box-sizing: border-box;
+  padding-inline: 30px;
   padding-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: absolute;
 }
 .CalendarView .menu {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   gap: 100px;
+  position: fixed;
+  top: 5px;
+  right: 0;
+  z-index: 1;
+  background-color: white;
+  padding-top: 70px;
+  padding-bottom: 10px;
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.4));
 }
 .CalendarView .days {
   width: 80%;
@@ -21,10 +35,12 @@
   justify-content: center;
   margin-top: 50px;
   text-align: center;
+  padding-top: 30px;
 }
 .CalendarView .days .weekend {
   color: red;
 }
 .CalendarView .days h1 {
   margin: 0;
+  min-width: 160px;
 }/*# sourceMappingURL=CalendarView.css.map */
