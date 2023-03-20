@@ -12,7 +12,7 @@ function CalendarView() {
   const [yearSelect, setYearSelect] = useState(getYear(new Date()));
   const [monthSelect, setMonthSelect] = useState(yearMonthTodaySplited[1]); */
 
-  const [yearSelect, setYearSelect] = useState(getYear(new Date()));
+  const [yearSelect, setYearSelect] = useState(getYear('2023'));
   const [monthSelect, setMonthSelect] = useState('03');
 
   //counting dates start

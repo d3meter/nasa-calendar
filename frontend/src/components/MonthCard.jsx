@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import DayCard from "./DayCard";
 import "./css/MonthCard.css";
 import nasaData from "../data/nasa-data.json";
-import { Link } from "react-router-dom";
 
 function MonthCard({ monthSelect, startDate, endDate }) {
   let filterData = [];

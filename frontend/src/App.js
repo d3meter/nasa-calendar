@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./App.css";
 /* import { addDataNasa, getDataNasa } from "./admin/dataManager"; */
 import "react-calendar/dist/Calendar.css";
@@ -9,16 +9,16 @@ import Favorites from "./pages/Favorites";
 import Main from "./pages/Main";
 import DetailsPage from "./pages/DetailsPage";
 import Login from "./pages/Login";
-import nasaData from "./data/nasa-data.json";
-import { getISOLocalDate } from "@wojtekmaj/date-utils";
+/* import nasaData from "./data/nasa-data.json";
+import { getISOLocalDate } from "@wojtekmaj/date-utils"; */
 import Registration from "./pages/Registration";
 
 function App() {
-  const [nasaDataUpdate, setNasaDataUpdate] = useState([]);
-
   //start of update fetch
+/* const [nasaDataUpdate, setNasaDataUpdate] = useState([]);
 
-  useEffect(() => {
+
+useEffect(() => {
     const apiKey = "QYSDCrsuNdQpx6YY9Yg2eO9RBWDIVwpWkwhwYWi8";
 
     const date = new Date();
@@ -43,7 +43,7 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
+useEffect(() => {
     if (nasaDataUpdate.length === 2) {
       let newArray = nasaData.push(nasaDataUpdate[1]);
       nasaData = newArray;
@@ -53,7 +53,7 @@ function App() {
       nasaData = newArray;
       console.log(nasaData);
     }
-  }, [nasaDataUpdate]);
+  }, [nasaDataUpdate]); */
 
   //end of update fetch
 
