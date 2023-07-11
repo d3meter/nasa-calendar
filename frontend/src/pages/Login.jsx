@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./css/Login.css";
 import { Link } from "react-router-dom";
 import {
@@ -17,9 +17,10 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
   const [logState, setLogState] = useState("logged out");
+  const [errorMessage, setErrorMessage] = useState(null);
+  const passwordRef = useRef(null);
 
   useEffect(() => {
     const auth = getAuth();
@@ -32,9 +33,14 @@ function Login() {
     });
   }, []);
 
-  const handleLog = (event) => {
+  const handleLog = async (event) => {
     event.preventDefault();
-    login(email, password).then((userData) => setUser(userData));
+    const password = passwordRef.current.value;
+    try {
+      await login(email, password).then((userData) => setUser(userData));
+    } catch (error) {
+      setErrorMessage("Wrong email or password!");
+    }
   };
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -64,7 +70,7 @@ function Login() {
             <OutlinedInput
               id="outlined-adornment-password"
               type={showPassword ? "text" : "password"}
-              onChange={(event) => setPassword(event.target.value)}
+              inputRef={passwordRef}
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
@@ -81,19 +87,16 @@ function Login() {
             />
           </FormControl>
           <FormControl sx={{ m: 1, width: "30ch" }}>
-            <Button
-              onClick={handleLog}
-              variant="outlined"
-            >
+            <Button onClick={handleLog} variant="outlined">
               Login
             </Button>
           </FormControl>
- {/*          <p
+          <p
             className="error-text"
-            style={{ display: showErrorDialog ? "block" : "none" }}
+            style={{ display: errorMessage ? "block" : "none" }}
           >
-            Invalid email or password!
-          </p> */}
+            {errorMessage}
+          </p>
           <p>
             Are you new cadet?
             <Link to="/registration">

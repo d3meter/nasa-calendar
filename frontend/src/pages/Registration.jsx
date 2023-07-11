@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./css/Registration.css";
 import { Link } from "react-router-dom";
 import {
@@ -8,22 +8,28 @@ import {
   InputAdornment,
   IconButton,
   FormControl,
-  Button
+  Button,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material/";
 import { registration } from "../admin/auth";
 
 function Registration() {
   const [showPassword, setShowPassword] = useState(false);
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [showPasswordConfrim, setShowPasswordConfirm] = useState(false);
   const [email, setEmail] = useState("");
   const [finished, setFinished] = useState(false);
-  const [showErrorDialog, setShowErrorDialog] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const passwordRef = useRef(null);
+  const passwordConfirmRef = useRef(null);
 
-  const handleReg = () => {
-    registration(email, password).then(setFinished(true));
+  const handleReg = async () => {
+    const password = passwordRef.current.value;
+    try {
+      await registration(email, password);
+      setFinished(true);
+    } catch (error) {
+      setErrorMessage("Email already in use!");
+    }
   };
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -40,88 +46,103 @@ function Registration() {
   };
 
   const checkData = () => {
-    email.includes("@") &&
-    email.includes(".") &&
-    password.length > 5 &&
-    password === passwordConfirm
-      ? handleReg()
-      : setShowErrorDialog(true);
+    if (passwordRef.current.value.length < 6) {
+      setErrorMessage("Password must be at least 6 characters long!");
+    } else if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      setErrorMessage("Passwords must match!");
+    } else if (!email.includes("@") || !email.includes(".")) {
+      setErrorMessage("Invalid email format!");
+    } else {
+      handleReg();
+    }
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    checkData();
   };
 
   return (
     <div className="Registration">
       <h1>Registration</h1>
-      <h2>Please add your email and a password here.</h2>
       {!finished ? (
-        <form>
-          <FormControl sx={{ m: 1, width: "30ch" }}>
-            <TextField
-              id="outlined-basic"
-              label="Email"
-              variant="outlined"
-              onChange={(event) => setEmail(event.target.value)}
-            />
-          </FormControl>
-          <FormControl sx={{ m: 1, width: "30ch" }}>
-            <InputLabel htmlFor="outlined-adornment-password">
-              Password
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showPassword ? "text" : "password"}
-              onChange={(event) => setPassword(event.target.value)}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              label="Password"
-            />
-          </FormControl>
-          <FormControl sx={{ m: 1, width: "30ch" }}>
-            <InputLabel htmlFor="outlined-adornment-password">
-              Confirm password
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showPasswordConfrim ? "text" : "password"}
-              onChange={(event) => setPasswordConfirm(event.target.value)}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPasswordConfirm}
-                    onMouseDown={handleMouseDownPasswordConfirm}
-                    edge="end"
-                  >
-                    {showPasswordConfrim ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              label="Confirm password"
-            />
-          </FormControl>
-          <FormControl sx={{ m: 1, width: "30ch" }}>
-            <Button onClick={checkData} variant="outlined">
-              Registration
-            </Button>
-          </FormControl>
-          <p className="error-text" style={{ display: showErrorDialog ? "block" : "none" }}>Wrong email or password! <br /> Password must be at least 6 characters!</p>
-        </form>
+        <>
+          <h2>Please add your email and a password here.</h2>
+          <form onSubmit={handleFormSubmit}>
+            <FormControl sx={{ m: 1, width: "30ch" }}>
+              <TextField
+                id="outlined-basic"
+                label="Email"
+                variant="outlined"
+                onChange={(event) => setEmail(event.target.value)}
+              />
+            </FormControl>
+            <FormControl sx={{ m: 1, width: "30ch" }}>
+              <InputLabel htmlFor="outlined-adornment-password">
+                Password
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-password"
+                type={showPassword ? "text" : "password"}
+                inputRef={passwordRef}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Password"
+              />
+            </FormControl>
+            <FormControl sx={{ m: 1, width: "30ch" }}>
+              <InputLabel htmlFor="outlined-adornment-password-confirm">
+                Confirm password
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-password-confirm"
+                type={showPasswordConfrim ? "text" : "password"}
+                inputRef={passwordConfirmRef}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPasswordConfirm}
+                      onMouseDown={handleMouseDownPasswordConfirm}
+                      edge="end"
+                    >
+                      {showPasswordConfrim ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Confirm password"
+              />
+            </FormControl>
+            <FormControl sx={{ m: 1, width: "30ch" }}>
+              <Button onClick={checkData} variant="outlined" type="submit">
+                Registration
+              </Button>
+            </FormControl>
+            <p
+              className="error-text"
+              style={{ display: errorMessage ? "block" : "none" }}
+            >
+              {errorMessage}
+            </p>
+          </form>
+        </>
       ) : (
         <>
-          <p>Registration successful</p>
-          <Link to="/">
+          <p>Registration successful, you are logged in.</p>
+          <Link to="/calendar">
             <Button>
-              <span class="material-icons">arrow_back_ios</span>
-              <p>Back to the home page</p>
+              <span className="material-icons">arrow_back_ios</span>
+              <p>Go to the calendar</p>
             </Button>
           </Link>
         </>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material/";
 
 function YearBtn({ changeYear, yearSelect }) {
@@ -11,23 +11,8 @@ function YearBtn({ changeYear, yearSelect }) {
         value={yearSelect}
         label="year"
         onChange={changeYear}
-        disableScrollLock={true}
+        disablescrolllock="true"
       >
-{/*         <MenuItem value={1995}>1995</MenuItem>
-        <MenuItem value={1996}>1996</MenuItem>
-        <MenuItem value={1997}>1997</MenuItem>
-        <MenuItem value={1998}>1998</MenuItem>
-        <MenuItem value={1999}>1999</MenuItem>
-        <MenuItem value={2000}>2000</MenuItem>
-        <MenuItem value={2001}>2001</MenuItem>
-        <MenuItem value={2002}>2002</MenuItem>
-        <MenuItem value={2003}>2003</MenuItem>
-        <MenuItem value={2004}>2004</MenuItem>
-        <MenuItem value={2005}>2005</MenuItem>
-        <MenuItem value={2006}>2006</MenuItem>
-        <MenuItem value={2007}>2007</MenuItem>
-        <MenuItem value={2008}>2008</MenuItem>
-        <MenuItem value={2009}>2009</MenuItem> */}
         <MenuItem value={2010}>2010</MenuItem>
         <MenuItem value={2011}>2011</MenuItem>
         <MenuItem value={2012}>2012</MenuItem>

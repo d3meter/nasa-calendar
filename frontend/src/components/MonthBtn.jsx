@@ -12,7 +12,7 @@ function MonthBtn({changeMonth, monthSelect}) {
      value={monthSelect}
      label="month"
      onChange={changeMonth}
-     disableScrollLock={true}
+     disablescrolllock="true"
    >
      <MenuItem value='01'>January</MenuItem>
      <MenuItem value='02'>February</MenuItem>

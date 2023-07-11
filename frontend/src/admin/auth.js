@@ -15,10 +15,10 @@ const firebaseConfig = {
  appId: "1:1082424051578:web:e16be5fc5ff99e512378c3"
 };
 
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
+const auth = getAuth();
 
 export const login = function (email, password) {
- const auth = getAuth();
  return signInWithEmailAndPassword(auth, email, password)
    .then((userCredential) => {
      const user = userCredential.user;
@@ -29,11 +29,11 @@ export const login = function (email, password) {
      const errorCode = error.code;
      const errorMessage = error.message;
      console.log(errorCode, errorMessage);
+     throw error;
    });
 };
 
 export const registration = function (email, password) {
- const auth = getAuth();
  return createUserWithEmailAndPassword(auth, email, password)
    .then((userCredential) => {
      const user = userCredential.user;
@@ -44,10 +44,10 @@ export const registration = function (email, password) {
      const errorCode = error.code;
      const errorMessage = error.message;
      console.log(errorCode, errorMessage);
+     throw error;
    });
 };
 
 export const logOut = async function () {
- const auth = getAuth();
  await signOut(auth);
 };
