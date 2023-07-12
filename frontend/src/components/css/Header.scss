@@ -1,5 +1,5 @@
 $primary: #f8f7f3;
-$secondary: #0B3D91;
+$secondary: #0b3d91;
 
 .Header {
   width: 100%;
@@ -29,6 +29,7 @@ $secondary: #0B3D91;
     height: fit-content;
     width: min-content;
     padding-top: 25px;
+    position: relative;
     img {
       height: 80px;
     }
@@ -41,8 +42,9 @@ $secondary: #0B3D91;
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
-    h2 {
+    p {
       padding-right: 10px;
+      font-size: 1.7rem;
     }
     button {
       color: white;
@@ -69,12 +71,29 @@ $secondary: #0B3D91;
       font-weight: bold;
       font-size: 1.7rem;
       display: none;
-      margin: 0;
     }
   }
   .header-btn:hover {
     p {
       display: block;
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    min-width: unset;
+    .header-section2 {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .header-btn:hover {
+      p {
+        display: none;
+      }
+    }
+    .header-section3 {
+      p {
+        font-size: large;
+      }
     }
   }
 }

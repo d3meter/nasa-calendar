@@ -49,7 +49,7 @@ function Header() {
         {logState === "logged in" ? (
           <>
             <span className="material-icons md-36">verified_user</span>
-            <h2>{userLoggedin}</h2>
+            <p>{userLoggedin}</p>
             <button
               className="header-btn"
               onClick={signOut}

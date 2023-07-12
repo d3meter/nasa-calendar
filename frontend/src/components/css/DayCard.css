@@ -49,4 +49,18 @@
   width: 100%;
   min-height: 100%;
   pointer-events: none;
+}
+@media screen and (max-width: 1000px) {
+  .DayCard {
+    min-width: 120px;
+    width: 14%;
+  }
+  .DayCard .day-tag {
+    flex-direction: column;
+    height: auto;
+    font-size: large;
+  }
+  .DayCard .day-img {
+    height: auto;
+  }
 }/*# sourceMappingURL=DayCard.css.map */

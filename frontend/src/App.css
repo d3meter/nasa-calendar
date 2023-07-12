@@ -7,15 +7,23 @@ a img {
   border: none;
 }
 
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
 body {
   width: 100vw;
   height: 100vh;
   min-height: 400px;
   max-width: 100%;
-  min-width: 700px;
   box-sizing: border-box;
   font-family: 'Space Grotesk', sans-serif;
   overflow-y: scroll;
+  position: absolute;
 }
 
 body.vp-center {

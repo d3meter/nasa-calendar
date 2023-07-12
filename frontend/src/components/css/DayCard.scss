@@ -49,4 +49,16 @@
       pointer-events: none;
     }
   }
+  @media screen and (max-width: 1000px) {
+    min-width: 120px;
+    width: 14%;
+    .day-tag {
+      flex-direction: column;
+      height: auto;
+      font-size: large;
+    }
+    .day-img {
+      height: auto;
+    }
+  }
 }

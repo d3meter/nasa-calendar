@@ -17,7 +17,7 @@ function DayDetail({ nasaData }) {
     <div className="DayDetail">
       <div className="detail-header">
         <h1>{nasaData.title}</h1>
-        <h1>{nasaData.date}</h1>
+        <h1 className="header-date">{nasaData.date}</h1>
       </div>
       <div className="detail-container">
         <div className="detail-img">

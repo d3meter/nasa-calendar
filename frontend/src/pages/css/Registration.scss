@@ -10,6 +10,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     .error-text {
     color: red;
     font-weight: bold;
@@ -18,5 +19,8 @@
   }
   h1 {
     margin: 0;
+   }
+   h2 {
+    text-align: center;
    }
 }

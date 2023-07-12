@@ -2,7 +2,7 @@
   width: 100%;
   min-width: 700px;
   height: 60px;
-  background-color: #0B3D91;
+  background-color: #0b3d91;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -29,6 +29,7 @@
   width: -moz-min-content;
   width: min-content;
   padding-top: 25px;
+  position: relative;
 }
 .Header .header-section2 img {
   height: 80px;
@@ -42,8 +43,9 @@
   justify-content: flex-end;
   gap: 10px;
 }
-.Header .header-section3 h2 {
+.Header .header-section3 p {
   padding-right: 10px;
+  font-size: 1.7rem;
 }
 .Header .header-section3 button {
   color: white;
@@ -70,10 +72,25 @@
   font-weight: bold;
   font-size: 1.7rem;
   display: none;
-  margin: 0;
 }
 .Header .header-btn:hover p {
   display: block;
+}
+@media screen and (max-width: 1000px) {
+  .Header {
+    min-width: unset;
+  }
+  .Header .header-section2 {
+    display: none;
+  }
+}
+@media screen and (max-width: 700px) {
+  .Header .header-btn:hover p {
+    display: none;
+  }
+  .Header .header-section3 p {
+    font-size: large;
+  }
 }
 
 /* Rules for sizing the icon. */

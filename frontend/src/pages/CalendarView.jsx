@@ -38,7 +38,7 @@ function CalendarView() {
   };
 
   return (
-    <div className="CalendarView">
+    <div className="CalendarView container">
       {isLoading ? (
         <div className="loader-container">
           <img className="loader" src={loader} alt="loading..." />

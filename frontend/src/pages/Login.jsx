@@ -108,10 +108,10 @@ function Login() {
       ) : (
         <>
           <p>Login successful with {user.email} </p>
-          <Link to="/">
+          <Link to="/calendar">
             <Button>
               <span className="material-icons">arrow_back_ios</span>
-              <p>Back to the home page</p>
+              <p>Go to the calendar</p>
             </Button>
           </Link>
         </>

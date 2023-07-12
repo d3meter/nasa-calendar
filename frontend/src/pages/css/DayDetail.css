@@ -22,6 +22,9 @@
   box-sizing: border-box;
   padding-top: 12px;
 }
+.DayDetail .detail-header .header-date {
+  text-align: center;
+}
 .DayDetail .detail-container {
   width: 100%;
   height: 90%;
@@ -63,4 +66,24 @@
 }
 .DayDetail .detail-data span {
   filter: opacity(0.6);
+}
+@media screen and (max-width: 1000px) {
+  .DayDetail .detail-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .DayDetail .detail-header h1 {
+    font-size: large;
+    margin: 3px;
+  }
+  .DayDetail .detail-header .header-date {
+    font-weight: bold;
+    font-size: x-large;
+  }
+  .DayDetail .detail-container {
+    flex-direction: column;
+  }
+  .DayDetail p {
+    font-size: small;
+  }
 }/*# sourceMappingURL=DayDetail.css.map */
