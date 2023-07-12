@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./css/Header.css";
 import { Link } from "react-router-dom";
 import nasaLogo from "../pub-imgs/nasa-logo.png";
-import { logOut } from "../admin/auth";
+import { logOut } from "../auth/auth";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function Header() {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DayDetail from "./DayDetail";
-import nasaData from "../data/nasa-data.json";
+import nasaData from "../database/data/nasa-data.json";
 
 function Main() {
   const [nasaDataToday, setNasaDataToday] = useState([]);

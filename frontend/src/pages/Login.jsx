@@ -11,7 +11,7 @@ import {
   Button,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material/";
-import { login } from "../admin/auth";
+import { login } from "../auth/auth";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function Login() {

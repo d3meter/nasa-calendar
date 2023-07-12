@@ -11,7 +11,7 @@ import {
   Button,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material/";
-import { registration } from "../admin/auth";
+import { registration } from "../auth/auth";
 
 function Registration() {
   const [showPassword, setShowPassword] = useState(false);

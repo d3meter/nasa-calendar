@@ -1,7 +1,7 @@
 import React from "react";
 import DayCard from "./DayCard";
 import "./css/MonthCard.css";
-import nasaData from "../data/nasa-data.json";
+import nasaData from "../database/data/nasa-data.json";
 
 function MonthCard({ monthSelect, startDate, endDate }) {
   let filterData = [];

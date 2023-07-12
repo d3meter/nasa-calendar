@@ -24,15 +24,6 @@ export const getDataNasa = async () => {
   return dataNasa;
 };
 
-/* const apiKey = "QYSDCrsuNdQpx6YY9Yg2eO9RBWDIVwpWkwhwYWi8";
-let fetchUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=2022-01-01&end_date=2022-02-01`;
-
-const fetchDataNasa = async () => {
-  const response = await fetch(fetchUrl);
-  const responseJson = await response.json();
-  return responseJson;
-}; */
-
 export const addDataNasa = async () => {
   try {
     const docRef = await addDoc(collection(db, "dataNasa"), {
