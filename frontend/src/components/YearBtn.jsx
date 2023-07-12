@@ -11,7 +11,6 @@ function YearBtn({ changeYear, yearSelect }) {
         value={yearSelect}
         label="year"
         onChange={changeYear}
-        disablescrolllock="true"
       >
         <MenuItem value={2010}>2010</MenuItem>
         <MenuItem value={2011}>2011</MenuItem>

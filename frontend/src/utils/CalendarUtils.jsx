@@ -1,10 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import nasaData from "../database/data/nasa-data.json";
 import { getDaysInMonth, getISOLocalDate } from "@wojtekmaj/date-utils";
 
 function CalendarUtils() {
-  const yearSelect = useState("");
-  const monthSelect = useState("");
+  const [yearSelect, setYearSelect] = useState(null);
+  const [monthSelect, setMonthSelect] = useState(null);
+
+  useEffect(() => {
+    if (yearSelect === null) {
+      const yearDefault = getYearDefault();
+      setYearSelect(yearDefault);
+    }
+  }, [yearSelect]);
+
+  useEffect(() => {
+    if (monthSelect === null) {
+      const monthDefault = getMonthDefault();
+      setMonthSelect(monthDefault);
+    }
+  }, [monthSelect]);
+
+  const onChangeMonth = (inputValue) => {
+    setMonthSelect(inputValue);
+  };
+
+  const onChangeYear = (inputValue) => {
+    setYearSelect(inputValue);
+  };
 
   let dateSelect = yearSelect + "-" + monthSelect + "-1";
   let daysMonthOfDateSelect = getDaysInMonth(new Date(dateSelect));
@@ -38,61 +60,34 @@ function CalendarUtils() {
 
   const getMonthDefault = () => {
     let dateInArray = getLastDataDateInArray();
-    return parseInt(dateInArray[1]);
+    return dateInArray[1];
   };
 
-  const defineMonthNext = (monthSelect) => {
+  const defineMonthNext = () => {
     let monthNext = monthSelect !== "12" ? parseInt(monthSelect) + 1 : 1;
     return monthNext;
   };
 
-  const defineMonthLast = (monthSelect) => {
+  const defineMonthLast = () => {
     let monthLast = monthSelect !== "01" ? parseInt(monthSelect) - 1 : 12;
     return monthLast;
   };
 
-  const defineYearMonthNext = (yearSelect, monthSelect) => {
+  const defineYearMonthNext = () => {
     let yearMonthNext =
       monthSelect !== "12" ? yearSelect : parseInt(yearSelect) + 1;
     return yearMonthNext;
   };
 
-  const defineYearMonthLast = (yearSelect, monthSelect) => {
+  const defineYearMonthLast = () => {
     let yearMonthLast =
       monthSelect !== "01" ? yearSelect : parseInt(yearSelect) - 1;
     return yearMonthLast;
   };
 
-  const calcEndDate = (yearSelect, monthSelect) => {
-    let monthNext = defineMonthNext(monthSelect);
-    let yearMonthNext = defineYearMonthNext();
-
-    let endDateRaw =
-      yearSelect + "-" + monthSelect + "-" + daysMonthOfDateSelect;
-    if (lastDayNameSelect === "Saturday") {
-      endDateRaw = yearMonthNext + "-" + monthNext + "-1";
-    }
-    if (lastDayNameSelect === "Friday") {
-      endDateRaw = yearMonthNext + "-" + monthNext + "-2";
-    }
-    if (lastDayNameSelect === "Thursday") {
-      endDateRaw = yearMonthNext + "-" + monthNext + "-3";
-    }
-    if (lastDayNameSelect === "Wednesday") {
-      endDateRaw = yearMonthNext + "-" + monthNext + "-4";
-    }
-    if (lastDayNameSelect === "Tuesday") {
-      endDateRaw = yearMonthNext + "-" + monthNext + "-5";
-    }
-    if (lastDayNameSelect === "Monday") {
-      endDateRaw = yearMonthNext + "-" + monthNext + "-6";
-    }
-    return getISOLocalDate(new Date(endDateRaw));
-  };
-
-  const calcStartDate = (yearSelect, monthSelect) => {
-    let yearMonthLast = defineYearMonthLast(yearSelect, monthSelect);
-    let monthLast = defineMonthLast(monthSelect);
+  const calcStartDate = () => {
+    let yearMonthLast = defineYearMonthLast();
+    let monthLast = defineMonthLast();
 
     let dateLastBefore = yearMonthLast + "-" + monthLast + "-1";
     let daysMonthLast = parseInt(getDaysInMonth(new Date(dateLastBefore)));
@@ -124,7 +119,34 @@ function CalendarUtils() {
     return getISOLocalDate(new Date(startDateRaw));
   };
 
-  const filterDaysForMonthCard = (yearSelect, monthSelect) => {
+  const calcEndDate = () => {
+    let monthNext = defineMonthNext();
+    let yearMonthNext = defineYearMonthNext();
+
+    let endDateRaw =
+      yearSelect + "-" + monthSelect + "-" + daysMonthOfDateSelect;
+    if (lastDayNameSelect === "Saturday") {
+      endDateRaw = yearMonthNext + "-" + monthNext + "-1";
+    }
+    if (lastDayNameSelect === "Friday") {
+      endDateRaw = yearMonthNext + "-" + monthNext + "-2";
+    }
+    if (lastDayNameSelect === "Thursday") {
+      endDateRaw = yearMonthNext + "-" + monthNext + "-3";
+    }
+    if (lastDayNameSelect === "Wednesday") {
+      endDateRaw = yearMonthNext + "-" + monthNext + "-4";
+    }
+    if (lastDayNameSelect === "Tuesday") {
+      endDateRaw = yearMonthNext + "-" + monthNext + "-5";
+    }
+    if (lastDayNameSelect === "Monday") {
+      endDateRaw = yearMonthNext + "-" + monthNext + "-6";
+    }
+    return getISOLocalDate(new Date(endDateRaw));
+  };
+
+  const filterDaysForMonthCard = () => {
     let startDate = calcStartDate();
     let endDate = calcEndDate();
     let filterData = [];
@@ -152,10 +174,12 @@ function CalendarUtils() {
   };
 
   return {
+    yearSelect,
+    monthSelect,
+    onChangeMonth,
+    onChangeYear,
     filterDaysForMonthCard,
-    getMonthDefault,
-    getYearDefault
-  }
+  };
 }
 
 export default CalendarUtils;
