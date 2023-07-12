@@ -1,33 +1,52 @@
-import React, {useState} from 'react'
-import {FormControl, InputLabel, Select, MenuItem} from '@mui/material/';
+import React from "react";
 
-function MonthBtn({changeMonth, monthSelect}) {
+function MonthBtn({ changeMonth, monthSelect }) {
 
   return (
-   <FormControl size='medium'>
-   <InputLabel id="demo-simple-select-label">Month</InputLabel>
-   <Select
-     labelId="demo-simple-select-label"
-     id="demo-simple-select"
-     value={monthSelect}
-     label="month"
-     onChange={changeMonth}
-   >
-     <MenuItem value='01'>January</MenuItem>
-     <MenuItem value='02'>February</MenuItem>
-     <MenuItem value='03'>March</MenuItem>
-     <MenuItem value='04'>April</MenuItem>
-     <MenuItem value='05'>May</MenuItem>
-     <MenuItem value='06'>June</MenuItem>
-     <MenuItem value='07'>July</MenuItem>
-     <MenuItem value='08'>August</MenuItem>
-     <MenuItem value='09'>September</MenuItem>
-     <MenuItem value='10'>October</MenuItem>
-     <MenuItem value='11'>November</MenuItem>
-     <MenuItem value='12'>December</MenuItem>
-   </Select>
- </FormControl>
-  )
+    <select
+      className="form-select form-select-lg"
+      value={monthSelect}
+      label="month"
+      onChange={changeMonth}
+    >
+      <option value="01">
+        January
+      </option>
+      <option value="02">
+        February
+      </option>
+      <option value="03">
+        March
+      </option>
+      <option value="04">
+        April
+      </option>
+      <option value="05">
+        May
+      </option>
+      <option value="06">
+        June
+      </option>
+      <option value="07">
+        July
+      </option>
+      <option value="08">
+        August
+      </option>
+      <option value="09">
+        September
+      </option>
+      <option value="10">
+        October
+      </option>
+      <option  value="11">
+        November
+      </option>
+      <option value="12">
+        December
+      </option>
+    </select>
+  );
 }
 
-export default MonthBtn
+export default MonthBtn;

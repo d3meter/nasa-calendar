@@ -2,14 +2,9 @@
   width: 80%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 0.7fr);
+  /*   grid-template-rows: repeat(6, 0.7fr); */
   align-items: flex-start;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 150px;
   text-align: center;
-}
-.MonthCard .error {
-  padding-top: 100px;
-  width: 700%;
-  color: red;
 }/*# sourceMappingURL=MonthCard.css.map */

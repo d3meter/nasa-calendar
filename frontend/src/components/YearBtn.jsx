@@ -1,33 +1,31 @@
-import React from "react";
-import { FormControl, InputLabel, Select, MenuItem } from "@mui/material/";
+import React, { useState, useEffect } from "react";
+import nasaData from "../database/data/nasa-data.json";
 
 function YearBtn({ changeYear, yearSelect }) {
+  const [yearsPresent, setYearsPresent] = useState([]);
+
+  useEffect(() => {
+    const years = []
+    nasaData.map((data) => {
+      years.push(parseInt(data.date.substring(0, 4)));
+    });
+    const uniqueYears = [...new Set(years)];
+    setYearsPresent(uniqueYears);
+  }, []);
+
   return (
-    <FormControl size="medium">
-      <InputLabel id="demo-simple-select-label">Year</InputLabel>
-      <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
+      <select
+        className="form-select form-select-lg"
         value={yearSelect}
         label="year"
         onChange={changeYear}
       >
-        <MenuItem value={2010}>2010</MenuItem>
-        <MenuItem value={2011}>2011</MenuItem>
-        <MenuItem value={2012}>2012</MenuItem>
-        <MenuItem value={2013}>2013</MenuItem>
-        <MenuItem value={2014}>2014</MenuItem>
-        <MenuItem value={2015}>2015</MenuItem>
-        <MenuItem value={2016}>2016</MenuItem>
-        <MenuItem value={2017}>2017</MenuItem>
-        <MenuItem value={2018}>2018</MenuItem>
-        <MenuItem value={2019}>2019</MenuItem>
-        <MenuItem value={2020}>2020</MenuItem>
-        <MenuItem value={2021}>2021</MenuItem>
-        <MenuItem value={2022}>2022</MenuItem>
-        <MenuItem value={2023}>2023</MenuItem>
-      </Select>
-    </FormControl>
+        {yearsPresent?.map((year, i) => (
+          <option key={i} value={year}>
+            {year}
+          </option>
+        ))}
+      </select>
   );
 }
 

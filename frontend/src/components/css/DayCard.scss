@@ -1,8 +1,7 @@
 .DayCard {
   width: 100%;
   min-width: 160px;
-  height: 100%;
-  max-height: 220px;
+  height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -12,9 +11,11 @@
   box-sizing: border-box;
   padding: 5px;
   .title {
+    width: 100%;
     margin-block: 5px;
     max-height: 42px;
     overflow: hidden;
+    line-height: 20px;
   }
   .day-tag {
     height: 2.5rem;

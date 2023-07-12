@@ -28,6 +28,26 @@ function CalendarUtils() {
     setYearSelect(inputValue);
   };
 
+  // todo - doesn't work as expected
+/*   const [monthsPresent, setMonthsPresent] = useState(null);
+
+  useEffect(() => {
+    const monthsInYear = [];
+    nasaData?.map((data) => {
+      if (parseInt(data.date.substring(0, 4)) === yearSelect) {
+        monthsInYear.push(data.date.substring(5, 7));
+      }
+    });
+    const uniqueMonths = [...new Set(monthsInYear)];
+    setMonthsPresent(uniqueMonths);
+  }, [yearSelect]);
+
+  useEffect(() => {
+      console.log(yearSelect);
+      console.log(monthsPresent);
+  }, [monthsPresent]); */
+
+
   let dateSelect = yearSelect + "-" + monthSelect + "-1";
   let daysMonthOfDateSelect = getDaysInMonth(new Date(dateSelect));
   let dateSelectLastDay =
