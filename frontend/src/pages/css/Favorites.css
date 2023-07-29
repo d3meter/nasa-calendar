@@ -1,11 +1,12 @@
 .Favorites {
   width: 100%;
-  padding-top: 140px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding-top: 80px;
 }
 .Favorites h1 {
   margin: 0;
+}
+.Favorites .my-masonry-grid { /* Not needed if autoprefixing */ /* Not needed if autoprefixing */
+  display: flex;
+  width: auto;
 }/*# sourceMappingURL=Favorites.css.map */

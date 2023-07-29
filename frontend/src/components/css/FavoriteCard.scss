@@ -1,41 +1,23 @@
-$primary: #f8f7f3;
-$secondary: black;
-
-.DayDetail {
-  padding-top: 60px;
+.FavoriteCard {
   width: 100%;
-  height: 100%;
   box-sizing: border-box;
-  padding-bottom: 20px;
-  h1 {
-    margin: 10px;
-  }
-  .detail-header {
-    display: flex;
-    background-color: $secondary;
-    color: $primary;
+  display: flex;
+  flex-direction: column;
+  .fc-header {
     width: 100%;
-    min-height: 10%;
     height: fit-content;
-    justify-content: space-between;
-    align-items: center;
     padding-inline: 20px;
     box-sizing: border-box;
     padding-top: 12px;
-    .header-date {
-      text-align: center;
-    }
-  }
-  .detail-container {
-    width: 100%;
-    height: 90%;
-    box-sizing: border-box;
     display: flex;
-    padding-block: 40px;
-    padding-inline: 40px;
-    text-align: justify;
-    color: $secondary;
-    .detail-img {
+    align-items: center;
+    justify-content: center;
+  }
+  .fc-container {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    .fc-img {
       width: auto;
       max-height: 100%;
       box-sizing: border-box;
@@ -44,7 +26,24 @@ $secondary: black;
       justify-content: center;
       overflow: hidden;
       position: relative;
-      .favorite-button {
+      .details-button {
+       width: auto;
+       height: 40px;
+       display: flex;
+       align-items: center;
+       position: absolute;
+       top: 12px;
+       left: 12px;
+       z-index: 1;
+       background-color: rgba(255, 255, 255, 0.1);
+       color: rgba(255, 255, 255, 0.6);
+       padding-inline: 18px;
+       border-radius: 20px;
+      }
+      .details-button:hover {
+       background-color: rgba(255, 255, 255, 0.3);
+      }
+      .remove-button {
         height: auto;
         width: auto;
         position: absolute;
@@ -66,7 +65,7 @@ $secondary: black;
           opacity: 0.4;
         }
       }
-      .favorite-button:hover {
+      .remove-button:hover {
         background-color: rgba(255, 255, 255, 0.3);
       }
       a {
@@ -82,35 +81,6 @@ $secondary: black;
         width: 100vw;
         height: 70vh;
       }
-    }
-  }
-  .detail-data {
-    width: fit-content;
-    height: inherit;
-    box-sizing: border-box;
-    padding-inline: 10px;
-    span {
-      filter: opacity(0.6);
-    }
-  }
-  @media screen and (max-width: 1000px) {
-    .detail-header {
-      flex-direction: column;
-      text-align: center;
-      h1 {
-        font-size: large;
-        margin: 3px;
-      }
-      .header-date {
-        font-weight: bold;
-        font-size: x-large;
-      }
-    }
-    .detail-container {
-      flex-direction: column;
-    }
-    p {
-      font-size: small;
     }
   }
 }

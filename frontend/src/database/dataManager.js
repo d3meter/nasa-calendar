@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, addDoc, collection, getDocs } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import { deleteDoc, doc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB5P7W0zfraUVzUwrSAJiL3gnx5ilbY9Bo",
@@ -12,27 +14,56 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
+const auth = getAuth(app);
 const db = getFirestore(app);
 
-export const getDataNasa = async () => {
-  const querySnapshot = await getDocs(collection(db, "dataNasa"));
-  const dataNasa = [];
+export const getFavorites = async () => {
+  const user = auth.currentUser;
+  if (!user) {
+    throw new Error("User not logged in");
+  }
+
+  const querySnapshot = await getDocs(
+    collection(db, `users/${user.uid}/favorites`)
+  );
+  const favorites = [];
   querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data()}`);
-    dataNasa.push(doc.data());
+    const favoriteData = { id: doc.id, ...doc.data() };
+    console.log(`${doc.id} => ${favoriteData}`);
+    favorites.push(favoriteData);
   });
-  return dataNasa;
+  return favorites;
 };
 
-export const addDataNasa = async () => {
+export const addFavorite = async (data) => {
   try {
-    const docRef = await addDoc(collection(db, "dataNasa"), {
-      /*      first: "Ada",
-     last: "Lovelace",
-     born: 1815 */
-    });
+    const user = auth.currentUser;
+    if (!user) {
+      throw new Error("User not logged in");
+    }
+
+    const docRef = await addDoc(
+      collection(db, `users/${user.uid}/favorites`),
+      data
+    );
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
     console.error("Error adding document: ", e);
+  }
+};
+
+export const removeFavorite = async (favoriteId) => {
+  try {
+    const user = auth.currentUser;
+    if (!user) {
+      throw new Error("User not logged in");
+    }
+
+    const favoriteRef = doc(db, `users/${user.uid}/favorites/${favoriteId}`);
+
+    await deleteDoc(favoriteRef);
+    console.log("Document deleted: ", favoriteId);
+  } catch (e) {
+    console.error("Error removing document: ", e);
   }
 };

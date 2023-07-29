@@ -68,13 +68,4 @@
   position: relative;
   top: 150px;
   color: red;
-}
-@media screen and (max-width: 1000px) {
-  .CalendarView .days {
-    width: 100%;
-    grid-template-columns: repeat(7, 120px);
-  }
-  .CalendarView .days h1 {
-    min-width: unset;
-  }
 }/*# sourceMappingURL=CalendarView.css.map */

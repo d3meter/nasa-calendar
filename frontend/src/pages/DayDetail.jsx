@@ -1,7 +1,9 @@
-import { Tooltip } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import spinner from "../pub-imgs/spinner.gif";
+import favoriteButton from "../pub-imgs/add_icon.png";
+import { Tooltip } from "@mui/material";
 import "./css/DayDetail.css";
+import { addFavorite } from "../database/dataManager";
 
 function DayDetail({ nasaData }) {
   const [loading, setLoading] = useState(false);
@@ -13,6 +15,10 @@ function DayDetail({ nasaData }) {
     }, 1000);
   }, []);
 
+  const onAddFavorite = () => {
+    addFavorite(nasaData);
+  }
+
   return (
     <div className="DayDetail">
       <div className="detail-header">
@@ -21,6 +27,15 @@ function DayDetail({ nasaData }) {
       </div>
       <div className="detail-container">
         <div className="detail-img">
+          <button
+            className="favorite-button"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Mark as favorite"
+            onClick={onAddFavorite}
+          >
+            <img src={favoriteButton} alt="+" />
+          </button>
           {!loading ? (
             nasaData.media_type !== "image" ? (
               <iframe
