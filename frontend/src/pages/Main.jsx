@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import DayDetail from "./DayDetail";
 import nasaData from "../database/data/nasa-data.json";
 
-function Main() {
+function Main({favorites = []}) {
   const [nasaDataToday, setNasaDataToday] = useState([]);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ function Main() {
 
   return (
     <div className="Main">
-        <DayDetail nasaData={nasaDataToday} />
+        <DayDetail nasaData={nasaDataToday} favorites={favorites}/>
     </div>
   );
 }

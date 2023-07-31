@@ -12,26 +12,14 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material/";
 import { login } from "../auth/auth";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+/* import { getAuth, onAuthStateChanged } from "firebase/auth"; */
 
-function Login() {
+function Login({ logState }) {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [user, setUser] = useState(null);
-  const [logState, setLogState] = useState("logged out");
   const [errorMessage, setErrorMessage] = useState(null);
   const passwordRef = useRef(null);
-
-  useEffect(() => {
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setLogState(`logged in`);
-      } else {
-        setLogState(`logged out`);
-      }
-    });
-  }, []);
 
   const handleLog = async (event) => {
     event.preventDefault();

@@ -45,31 +45,6 @@
   overflow: hidden;
   position: relative;
 }
-.DayDetail .detail-container .detail-img .favorite-button {
-  height: auto;
-  width: auto;
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 1;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: unset;
-  padding: 8px;
-}
-.DayDetail .detail-container .detail-img .favorite-button img {
-  height: 60px;
-  width: 60px;
-  filter: invert(1);
-  opacity: 0.2;
-  background-color: transparent;
-}
-.DayDetail .detail-container .detail-img .favorite-button img:hover {
-  opacity: 0.4;
-}
-.DayDetail .detail-container .detail-img .favorite-button:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
 .DayDetail .detail-container .detail-img a {
   width: auto;
   height: 100%;

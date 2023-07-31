@@ -21,7 +21,7 @@ body {
   min-height: 400px;
   max-width: 100%;
   box-sizing: border-box;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   overflow-y: scroll;
   position: absolute;
 }
@@ -41,20 +41,19 @@ body.vp-center {
   background-color: rgba(255, 255, 255, 0.1);
   border: unset;
   padding: 8px;
+  img {
+    height: 60px;
+    width: 60px;
+    filter: invert(1);
+    opacity: 0.2;
+    background-color: transparent;
+  }
 }
-.favorite-button img {
-  height: 60px;
-  width: 60px;
-  filter: invert(1);
-  opacity: 0.2;
-  background-color: transparent;
-}
-
 .favorite-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
-}
-.favorite-button:hover img {
-  opacity: 0.4;
+  img {
+    opacity: 0.4;
+  }
 }
 
 .remove-button {
@@ -69,21 +68,20 @@ body.vp-center {
   border: unset;
   padding: 8px;
   transition: 0.4s ease-in-out;
+  img {
+    height: 54px;
+    width: 54px;
+    filter: invert(1);
+    opacity: 0.4;
+    background-color: transparent;
+    transition: transform 0.3s ease-in-out;
+  }
 }
-.remove-button img {
-  height: 54px;
-  width: 54px;
-  filter: invert(1);
-  opacity: 0.4;
-  background-color: transparent;
-  transition: transform 0.3s ease-in-out;
-}
-
 .remove-button:hover {
   background-color: rgba(129, 6, 6, 0.5);
   transition: 0.4s ease-in-out;
+  img {
+    transform: rotate(45deg);
+    transition: transform 0.3s ease-in-out;
+  }
 }
-.remove-button:hover img {
-  transform: rotate(45deg);
-  transition: transform 0.3s ease-in-out;
-}/*# sourceMappingURL=App.css.map */

@@ -3,10 +3,12 @@ import spinner from "../pub-imgs/spinner.gif";
 import favoriteButton from "../pub-imgs/add_icon.png";
 import { Tooltip } from "@mui/material";
 import "./css/DayDetail.css";
-import { addFavorite } from "../database/dataManager";
+import { addFavorite, removeFavorite } from "../database/dataManager";
 
-function DayDetail({ nasaData }) {
+function DayDetail({ nasaData, favorites = [] }) {
   const [loading, setLoading] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [favoriteId, setFavoriteId] = useState(null);
 
   useEffect(() => {
     setLoading(true);
@@ -15,9 +17,23 @@ function DayDetail({ nasaData }) {
     }, 1000);
   }, []);
 
+  useEffect(() => {
+    for (const favorite of favorites) {
+      if (favorite.date === nasaData.date) {
+        setIsFavorite(true);
+        setFavoriteId(favorite.id);
+        break;
+      }
+    }
+  }, [nasaData, favorites]);
+
   const onAddFavorite = () => {
     addFavorite(nasaData);
-  }
+  };
+
+  const onRemoveFavorite = () => {
+    removeFavorite(favoriteId);
+  };
 
   return (
     <div className="DayDetail">
@@ -27,15 +43,27 @@ function DayDetail({ nasaData }) {
       </div>
       <div className="detail-container">
         <div className="detail-img">
-          <button
-            className="favorite-button"
-            data-toggle="tooltip"
-            data-placement="right"
-            title="Mark as favorite"
-            onClick={onAddFavorite}
-          >
-            <img src={favoriteButton} alt="+" />
-          </button>
+          {!isFavorite ? (
+            <button
+              className="favorite-button"
+              data-toggle="tooltip"
+              data-placement="right"
+              title="Mark as favorite"
+              onClick={onAddFavorite}
+            >
+              <img src={favoriteButton} alt="+" />
+            </button>
+          ) : (
+            <button
+              className="remove-button"
+              data-toggle="tooltip"
+              data-placement="right"
+              title="Remove from favorites"
+              onClick={onRemoveFavorite}
+            >
+              <img src={favoriteButton} alt="+" />
+            </button>
+          )}
           {!loading ? (
             nasaData.media_type !== "image" ? (
               <iframe

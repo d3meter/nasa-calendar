@@ -1,5 +1,12 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, addDoc, collection, getDocs } from "firebase/firestore";
+import {
+  getFirestore,
+  addDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { deleteDoc, doc } from "firebase/firestore";
 
@@ -42,13 +49,27 @@ export const addFavorite = async (data) => {
       throw new Error("User not logged in");
     }
 
+    const q = query(
+      collection(db, `users/${user.uid}/favorites`),
+      where("date", "==", data.date)
+    );
+    const querySnapshot = await getDocs(q);
+
+    if (!querySnapshot.empty) {
+      console.log("Favorite with the same date already exists.");
+      return;
+    }
+
     const docRef = await addDoc(
       collection(db, `users/${user.uid}/favorites`),
       data
     );
     console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
+
+    const updatedFavorites = await getFavorites(user.uid);
+    return updatedFavorites;
+  } catch (error) {
+    console.error("Error adding document: ", error);
   }
 };
 
@@ -63,7 +84,7 @@ export const removeFavorite = async (favoriteId) => {
 
     await deleteDoc(favoriteRef);
     console.log("Document deleted: ", favoriteId);
-  } catch (e) {
-    console.error("Error removing document: ", e);
+  } catch (error) {
+    console.error("Error removing document: ", error);
   }
 };
