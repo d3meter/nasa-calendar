@@ -36,7 +36,7 @@ export const getFavorites = async () => {
   const favorites = [];
   querySnapshot.forEach((doc) => {
     const favoriteData = { id: doc.id, ...doc.data() };
-    console.log(`${doc.id} => ${favoriteData}`);
+/*     console.log(`${doc.id} => ${JSON.stringify(favoriteData)}`); */
     favorites.push(favoriteData);
   });
   return favorites;
@@ -56,8 +56,7 @@ export const addFavorite = async (data) => {
     const querySnapshot = await getDocs(q);
 
     if (!querySnapshot.empty) {
-      console.log("Favorite with the same date already exists.");
-      return;
+      throw new Error("Favorite with the same date already exists.");
     }
 
     const docRef = await addDoc(
@@ -66,10 +65,10 @@ export const addFavorite = async (data) => {
     );
     console.log("Document written with ID: ", docRef.id);
 
-    const updatedFavorites = await getFavorites(user.uid);
+    const updatedFavorites = await getFavorites();
     return updatedFavorites;
   } catch (error) {
-    console.error("Error adding document: ", error);
+    throw error;
   }
 };
 
@@ -84,7 +83,9 @@ export const removeFavorite = async (favoriteId) => {
 
     await deleteDoc(favoriteRef);
     console.log("Document deleted: ", favoriteId);
+    const updatedFavorites = await getFavorites();
+    return updatedFavorites;
   } catch (error) {
-    console.error("Error removing document: ", error);
+    throw error;
   }
 };

@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material/";
 import { login } from "../auth/auth";
-/* import { getAuth, onAuthStateChanged } from "firebase/auth"; */
 
 function Login({ logState }) {
   const [showPassword, setShowPassword] = useState(false);

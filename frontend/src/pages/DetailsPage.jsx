@@ -3,7 +3,7 @@ import DayDetail from "./DayDetail";
 import nasaData from "../database/data/nasa-data.json";
 import { useParams } from "react-router-dom";
 
-function DetailsPage({favorites = []}) {
+function DetailsPage({ logState }) {
   const [nasaDataThatDay, setNasaDataThatDay] = useState([]);
 
   let {dateId} = useParams();
@@ -18,7 +18,7 @@ function DetailsPage({favorites = []}) {
 
   return (
     <div className="DetailsPage">
-      <DayDetail nasaData={nasaDataThatDay} favorites={favorites} />
+      <DayDetail nasaData={nasaDataThatDay} logState={logState} />
     </div>
   );
 }

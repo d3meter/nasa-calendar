@@ -4,9 +4,8 @@ import { Tooltip } from "@mui/material";
 import favoriteButton from "../pub-imgs/add_icon.png";
 import "./css/FavoriteCard.css";
 import spinner from "../pub-imgs/spinner.gif";
-import { removeFavorite } from "../database/dataManager";
 
-function FavoriteCard({ favorites }) {
+function FavoriteCard({ favorites, removeFavorite }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const date = favorites.date;
@@ -18,8 +17,12 @@ function FavoriteCard({ favorites }) {
     }, 1000);
   }, []);
 
-  const onRemoveFavorite = () => {
-    removeFavorite(favorites.id);
+  const onRemoveFavorite = async () => {
+    try {
+      await removeFavorite(favorites.id);
+    } catch (error) {
+      console.error("Error removing favorite:", error);
+    }
   };
 
   return (

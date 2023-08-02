@@ -3,12 +3,32 @@ import spinner from "../pub-imgs/spinner.gif";
 import favoriteButton from "../pub-imgs/add_icon.png";
 import { Tooltip } from "@mui/material";
 import "./css/DayDetail.css";
-import { addFavorite, removeFavorite } from "../database/dataManager";
+import {
+  getFavorites,
+  addFavorite,
+  removeFavorite,
+} from "../database/dataManager";
 
-function DayDetail({ nasaData, favorites = [] }) {
+function DayDetail({ nasaData, logState }) {
   const [isLoading, setIsLoading] = useState(false);
+  const [favorites, setFavorites] = useState([]);
   const [isFavorite, setIsFavorite] = useState(false);
   const [favoriteId, setFavoriteId] = useState(null);
+
+  useEffect(() => {
+    if (logState === "logged in") {
+      fetchFavorites();
+    }
+  }, [logState]);
+
+  const fetchFavorites = async () => {
+    try {
+      const fetchedData = await getFavorites();
+      setFavorites(fetchedData);
+    } catch (error) {
+      console.error("Error fetching favorites:", error);
+    }
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -30,7 +50,7 @@ function DayDetail({ nasaData, favorites = [] }) {
   const onAddFavorite = async () => {
     try {
       await addFavorite(nasaData);
-      setIsFavorite(true);
+      fetchFavorites();
     } catch (error) {
       console.error("Error adding favorite:", error);
     }
@@ -53,27 +73,28 @@ function DayDetail({ nasaData, favorites = [] }) {
       </div>
       <div className="detail-container">
         <div className="detail-img">
-          {!isFavorite ? (
-            <button
-              className="favorite-button"
-              data-toggle="tooltip"
-              data-placement="right"
-              title="Mark as favorite"
-              onClick={onAddFavorite}
-            >
-              <img src={favoriteButton} alt="+" />
-            </button>
-          ) : (
-            <button
-              className="remove-button"
-              data-toggle="tooltip"
-              data-placement="right"
-              title="Remove from favorites"
-              onClick={onRemoveFavorite}
-            >
-              <img src={favoriteButton} alt="+" />
-            </button>
-          )}
+          {logState === "logged in" &&
+            (!isFavorite ? (
+              <button
+                className="favorite-button"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="Mark as favorite"
+                onClick={onAddFavorite}
+              >
+                <img src={favoriteButton} alt="+" />
+              </button>
+            ) : (
+              <button
+                className="remove-button"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="Remove from favorites"
+                onClick={onRemoveFavorite}
+              >
+                <img src={favoriteButton} alt="+" />
+              </button>
+            ))}
           {!isLoading ? (
             nasaData.media_type !== "image" ? (
               <iframe

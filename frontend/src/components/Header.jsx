@@ -4,13 +4,17 @@ import { Link } from "react-router-dom";
 import nasaLogo from "../pub-imgs/nasa-logo.png";
 import { logOut } from "../auth/auth";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [logState, setLogState] = useState("logged out");
   const [userLoggedin, setUserLoggedin] = useState("");
 
+  const navigate = useNavigate();
+
   async function signOut() {
     await logOut();
+    navigate("/");
   }
 
   useEffect(() => {

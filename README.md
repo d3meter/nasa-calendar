@@ -11,7 +11,9 @@ I used [NASA-API](https://api.nasa.gov/) to build my database. The landing page 
 **Features integrated**
  - [x] React Router
 	 - [x] Main page
-		- [ ] Favorites (combined with auth and firestore)
+		- [x] Favorites (combined with auth and firestore)
+			 - [ ] Error, response feedback handling on UI
+				- [ ] Filter favorites			
 	 - [x] Calendar page
 		 - [x] Month view
 		 - [x] Day card (day detail)
@@ -21,7 +23,7 @@ I used [NASA-API](https://api.nasa.gov/) to build my database. The landing page 
  - [x] Firebase authentication (inc. validations: invalid password, email etc.)
 	 - [x] Registration
 	 - [x] Login
- - [ ] Firestore database
+ - [x] Firestore database
  - [x] Firebase hosting
  - [x] JSON database (using JSON loader)
  - [x] Auto. filled calendar look
