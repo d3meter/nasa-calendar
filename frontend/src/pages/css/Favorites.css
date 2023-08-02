@@ -1,12 +1,16 @@
 .Favorites {
   width: 100%;
   display: flex;
-  padding-top: 80px;
+  justify-content: center;
+  padding-top: 120px;
+  padding-inline: 100px;
 }
 .Favorites h1 {
   margin: 0;
+  width: 100%;
+  text-align: center;
 }
-.Favorites .my-masonry-grid { /* Not needed if autoprefixing */ /* Not needed if autoprefixing */
+.Favorites .my-masonry-grid {
   display: flex;
   width: auto;
 }/*# sourceMappingURL=Favorites.css.map */

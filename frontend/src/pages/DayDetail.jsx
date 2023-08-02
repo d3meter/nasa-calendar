@@ -6,14 +6,14 @@ import "./css/DayDetail.css";
 import { addFavorite, removeFavorite } from "../database/dataManager";
 
 function DayDetail({ nasaData, favorites = [] }) {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const [favoriteId, setFavoriteId] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
+    setIsLoading(true);
     setTimeout(() => {
-      setLoading(false);
+      setIsLoading(false);
     }, 1000);
   }, []);
 
@@ -64,7 +64,7 @@ function DayDetail({ nasaData, favorites = [] }) {
               <img src={favoriteButton} alt="+" />
             </button>
           )}
-          {!loading ? (
+          {!isLoading ? (
             nasaData.media_type !== "image" ? (
               <iframe
                 src={nasaData.url}

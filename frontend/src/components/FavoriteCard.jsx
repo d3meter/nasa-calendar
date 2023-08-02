@@ -7,14 +7,14 @@ import spinner from "../pub-imgs/spinner.gif";
 import { removeFavorite } from "../database/dataManager";
 
 function FavoriteCard({ favorites }) {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const date = favorites.date;
 
   useEffect(() => {
-    setLoading(true);
+    setIsLoading(true);
     setTimeout(() => {
-      setLoading(false);
+      setIsLoading(false);
     }, 1000);
   }, []);
 
@@ -37,7 +37,7 @@ function FavoriteCard({ favorites }) {
             <img src={favoriteButton} alt="+" />
           </button>
           <Link className="details-button" to={"/" + date}>details</Link>
-          {!loading ? (
+          {!isLoading ? (
             favorites.media_type !== "image" ? (
               <iframe
                 src={favorites.url}

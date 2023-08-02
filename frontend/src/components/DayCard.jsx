@@ -4,7 +4,7 @@ import "./css/DayCard.css";
 import spinner from "../pub-imgs/spinner.gif";
 
 function DayCard({ monthSelect, data }) {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const date = data.date;
   const dateSplit = date.split("-");
@@ -16,9 +16,9 @@ function DayCard({ monthSelect, data }) {
   let dayNameSelect = weekday[iOfDay.getDay()];
 
   useEffect(() => {
-    setLoading(true);
+    setIsLoading(true);
     setTimeout(() => {
-      setLoading(false);
+      setIsLoading(false);
     }, 3000);
   }, []);
 
@@ -29,7 +29,7 @@ function DayCard({ monthSelect, data }) {
         <p className="day-name">{dayNameSelect}</p>
       </div>
       <div className="day-img">
-        {!loading ? (
+        {!isLoading ? (
           data.media_type !== "image" ? (
             <iframe src={data.url} title={data.title}></iframe>
           ) : (
