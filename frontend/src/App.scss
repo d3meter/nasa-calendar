@@ -21,7 +21,7 @@ body {
   min-height: 400px;
   max-width: 100%;
   box-sizing: border-box;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   overflow-y: scroll;
   position: absolute;
 }
@@ -31,8 +31,8 @@ body.vp-center {
 }
 
 .favorite-button {
-  height: auto;
-  width: auto;
+  height: 70px;
+  width: 70px;
   position: absolute;
   top: 12px;
   right: 12px;
@@ -42,8 +42,8 @@ body.vp-center {
   border: unset;
   padding: 8px;
   img {
-    height: 60px;
-    width: 60px;
+    height: 54px;
+    width: 54px;
     filter: invert(1);
     opacity: 0.2;
     background-color: transparent;
@@ -64,7 +64,7 @@ body.vp-center {
   right: 12px;
   z-index: 1;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(5, 51, 187, 0.3);
   border: unset;
   padding: 8px;
   transition: 0.4s ease-in-out;

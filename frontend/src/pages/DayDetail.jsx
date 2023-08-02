@@ -27,12 +27,22 @@ function DayDetail({ nasaData, favorites = [] }) {
     }
   }, [nasaData, favorites]);
 
-  const onAddFavorite = () => {
-    addFavorite(nasaData);
+  const onAddFavorite = async () => {
+    try {
+      await addFavorite(nasaData);
+      setIsFavorite(true);
+    } catch (error) {
+      console.error("Error adding favorite:", error);
+    }
   };
 
-  const onRemoveFavorite = () => {
-    removeFavorite(favoriteId);
+  const onRemoveFavorite = async () => {
+    try {
+      await removeFavorite(favoriteId);
+      setIsFavorite(false);
+    } catch (error) {
+      console.error("Error removing favorite:", error);
+    }
   };
 
   return (
