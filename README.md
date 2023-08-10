@@ -16,6 +16,7 @@ I used [NASA-API](https://api.nasa.gov/) to build my database. The landing page 
 				- [ ] Filter favorites			
 	 - [x] Calendar page
 		 - [x] Month view
+			 - [x] Last selected year, month save/load (local storage)
 		 - [x] Day card (day detail)
 			 - [x] Clickable images ==> open in new tab
 	 - [x] Login page
@@ -27,7 +28,7 @@ I used [NASA-API](https://api.nasa.gov/) to build my database. The landing page 
  - [x] Firebase hosting
  - [x] JSON database (using JSON loader)
  - [x] Auto. filled calendar look
- - [x] Desing with SCSS and Material UI
+ - [x] Desing with SCSS and Material UI, Bootstrap
  - [x] Spinner while loading data
  - [ ] Auto. data update:
 	 - [ ] V1: via REST request (local backend server)
@@ -35,3 +36,5 @@ I used [NASA-API](https://api.nasa.gov/) to build my database. The landing page 
 
 **Extra**
  - [ ] Gallery
+		- [ ] Year select
+	 - [ ] Infinite scrolling

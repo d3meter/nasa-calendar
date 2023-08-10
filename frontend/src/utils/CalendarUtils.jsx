@@ -22,14 +22,16 @@ function CalendarUtils() {
 
   const onChangeMonth = (inputValue) => {
     setMonthSelect(inputValue);
+    localStorage.setItem("monthSelect", inputValue);
   };
 
   const onChangeYear = (inputValue) => {
     setYearSelect(inputValue);
+    localStorage.setItem("yearSelect", inputValue);
   };
 
   // todo - doesn't work as expected
-/*   const [monthsPresent, setMonthsPresent] = useState(null);
+  /*   const [monthsPresent, setMonthsPresent] = useState(null);
 
   useEffect(() => {
     const monthsInYear = [];
@@ -46,7 +48,6 @@ function CalendarUtils() {
       console.log(yearSelect);
       console.log(monthsPresent);
   }, [monthsPresent]); */
-
 
   let dateSelect = yearSelect + "-" + monthSelect + "-1";
   let daysMonthOfDateSelect = getDaysInMonth(new Date(dateSelect));

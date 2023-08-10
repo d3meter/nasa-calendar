@@ -25,6 +25,22 @@ function CalendarView() {
   });
 
   useEffect(() => {
+    const yearSaved = localStorage.getItem("yearSelect");
+    if (yearSaved) {
+      onChangeYear(yearSaved);
+    }
+  }, []);
+  
+
+  useEffect(() => {
+    const monthSaved = localStorage.getItem("monthSelect");
+    if (monthSaved) {
+      onChangeMonth(monthSaved);
+    }
+  }, []);
+  
+
+  useEffect(() => {
     const dataToDisplay = filterDaysForMonthCard();
     setFilterData(dataToDisplay);
   }, [yearSelect, monthSelect]);

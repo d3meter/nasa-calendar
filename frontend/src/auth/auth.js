@@ -50,4 +50,6 @@ export const registration = function (email, password) {
 
 export const logOut = async function () {
  await signOut(auth);
+ localStorage.removeItem(`monthSelect`);
+ localStorage.removeItem(`yearSelect`);
 };
