@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import CalendarView from "./pages/CalendarView";
 import Favorites from "./pages/Favorites";
+import Gallery from "./pages/Gallery";
 import Main from "./pages/Main";
 import DetailsPage from "./pages/DetailsPage";
 import Login from "./pages/Login";
@@ -39,6 +40,7 @@ function App() {
             path="/favorites"
             element={<Favorites logState={logState} />}
           />
+          <Route path="/gallery" element={<Gallery logState={logState} />} />
           <Route path="/login" element={<Login logState={logState} />} />
           <Route path="/registration" element={<Registration />} />
         </Route>

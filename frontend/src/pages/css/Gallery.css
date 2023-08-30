@@ -1,0 +1,33 @@
+.Gallery {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 180px;
+  padding-inline: 100px;
+  position: relative;
+}
+.Gallery .year-button {
+  position: fixed;
+  left: 0;
+  top: 100px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.Gallery .year-button select {
+  width: 200px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.Gallery h1 {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+.Gallery .my-masonry-grid {
+  display: flex;
+  width: auto;
+}/*# sourceMappingURL=Gallery.css.map */

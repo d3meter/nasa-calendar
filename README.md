@@ -6,14 +6,13 @@ Solo react project.
 *cd frontend* ==> *npm start*.
 
 **Description**
-I used [NASA-API](https://api.nasa.gov/) to build my database. The landing page (main page) shows the last picture or video of the day from NASA. With clicking on the calendar icon of header it navigates the user to the calendar page. As default configuration the current month occures but the user can switch between the required years and months. As the data is fetched directly from the database the loading time is significantly reduced. When clicking on a day its detail page appears. There is more information about the current media and when clicking on it the HD content is opened in a new tab. At the moment Firebase is used for authentication complemented with some validation features such as password and email format check. In the future hosting and fire store will be integrated as well.
+I used [NASA-API](https://api.nasa.gov/) to build my database. The landing (main) page shows the latest image or video of the day from NASA. Clicking on the calendar icon in the header takes the user to the calendar page. The default configuration is the current month, but the user can toggle between the desired years and months. As the data is retrieved directly from the database, the loading time is significantly reduced. Clicking on a day brings up its detail page. There is more information about the current media and clicking on it opens the HD content in a new tab. Firebase is used for authentication, supplemented by some validation features such as password and email format checking. Authenticated users can save and manage favourite day cards in the Favourites menu. On the Gallery page, users can select a year and browse through the year's images. The infinite scroll function is designed to provide a more pleasant and uninterrupted viewing experience.
 
 **Features integrated**
  - [x] React Router
 	 - [x] Main page
 		- [x] Favorites (combined with auth and firestore)
-			 - [ ] Error, response feedback handling on UI
-				- [ ] Filter favorites			
+			 - [ ] Error, response feedback handling on UI	
 	 - [x] Calendar page
 		 - [x] Month view
 			 - [x] Last selected year, month save/load (local storage)
@@ -35,6 +34,6 @@ I used [NASA-API](https://api.nasa.gov/) to build my database. The landing page 
 	 - [ ] V2: via Firebase
 
 **Extra**
- - [ ] Gallery
-		- [ ] Year select
-	 - [ ] Infinite scrolling
+ - [x] Gallery
+		- [x] Year select
+	 - [x] Infinite scrolling

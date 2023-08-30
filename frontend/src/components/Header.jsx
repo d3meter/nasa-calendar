@@ -45,6 +45,10 @@ function Header() {
           <span className="material-icons md-48">star_rate</span>
           <p>Favorites</p>
         </Link>
+        <Link className="header-btn" to="/gallery">
+          <span className="material-icons md-48">perm_media</span>
+          <p>Gallery</p>
+        </Link>
       </div>
       <div className="header-section2">
         <img src={nasaLogo} alt="logo" />
